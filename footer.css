@@ -1,0 +1,116 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#footer-Xevai-tech-logo{
+    width: 180px;
+    height: 70px;
+}
+
+#footer-peragraph{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+}
+
+#footer-social-icons-parent{
+    width: 100%;
+    height: auto;
+}
+
+
+/* icons */
+.footer-icon-div{
+    width: 45px;
+    height: 35px;
+    border: 1px solid #EDE9FE;
+    border-radius: 8px;
+    background-color: #EDE9FE;
+}
+
+#footer-email-icon{
+    color: #7F22FE;
+    font-size: 23px;
+    padding-top: 4px;
+    padding-left: 10px;
+}
+
+#footer-phone-icon{
+    color: #7F22FE;
+    font-size: 20px;
+    padding-top: 6px;
+    padding-left: 12px;   
+}
+
+
+#footer-location-icon{
+    color: #7F22FE;
+    font-size: 22px;
+    padding-top: 6px;
+    padding-left: 14px;   
+}
+
+#footer-service-tittle{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#footer-services-pages{
+    margin-top: 10px;
+}
+
+#footer-page{
+    text-decoration: none;
+    color: black;
+}
+#footer-page:hover{
+    color: #7F22FE;
+    cursor: pointer;
+}
+
+.nerrow-social-icons{
+    width: 35px;
+    height: 35px;
+    border: 1px solid gray;
+    border-radius: 25%;
+}
+
+#footer-linkedin-icon{
+    font-size: 21px;
+    padding-top: 7px;
+    padding-left: 7px;
+}
+#footer-linkedin-icon{
+    cursor: pointer;
+    transition: all 1s;
+}
+
+#footer-instagram-icon{
+    font-size: 21px;
+    padding-top: 7px;
+    padding-left: 7px;
+}
+#footer-instagram-icon{
+   cursor: pointer;
+   background-color: #7e22fe0f;
+   border-color: #7e22fe0f;
+   transition: all 1s;
+}
+
+#footer-xevai-icon{
+    width: 73%;
+    height: 73%;
+    margin-top: 3px;
+    margin-left: 7px;
+}
+
+#footer-xevai-icon:hover {
+    cursor: pointer;
+    transition: all 1s;
+    width: 73.7%;
+    height: 73.7%;
+    background-color: #7e22fe0f;
+    border-color: #7e22fe0f;
+
+}
+/* icons */

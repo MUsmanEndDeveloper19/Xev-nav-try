@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agent Development Agency | XevAI</title>
+<meta name="description" content="XevAI builds autonomous AI agents and multi-agent systems for businesses worldwide — LangGraph, CrewAI, AutoGen, OpenAI Agents SDK and Claude Agent SDK powered agent development.">
+
+<!-- Bootstrap 4 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<style>
+/* =========================================================
+   XevAI — AI Agent Development Agency
+   Theme: white / light-lavender base, purple → magenta
+   gradient accent, purple icon chips.
+   ========================================================= */
+
+:root{
+  --bg:#ffffff;
+  --bg-soft:#F7F4FC;
+  --card-bg:#ffffff;
+  --border:#EAE5F6;
+  --text-dark:#14162B;
+  --text-gray:#5B5F73;
+  --purple:#7C3AED;
+  --purple-dark:#6D28D9;
+  --purple-soft:#F3E8FF;
+  --pink:#D6249F;
+  --gradient:linear-gradient(135deg,#8B3EF2 0%,#D6249F 100%);
+  --teal-1:#0C8B93;
+  --teal-2:#0A6E77;
+  --radius:16px;
+  --font:'Inter', sans-serif;
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  font-family:var(--font);
+  color:var(--text-gray);
+  background:var(--bg);
+  overflow-x:hidden;
+}
+h1,h2,h3,h4,h5{
+  font-family:var(--font);
+  color:var(--text-dark);
+  font-weight:800;
+}
+p{ color:var(--text-gray); line-height:1.75; margin-bottom:0; }
+a{ text-decoration:none; }
+a:hover{ text-decoration:none; }
+ul{ list-style:none; padding:0; margin:0; }
+
+.section{ padding:100px 0; }
+.section-soft{ background:var(--bg-soft); }
+
+.eyebrow-tag{
+  display:inline-block;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--purple);
+  margin-bottom:.9rem;
+}
+
+.section-heading{ max-width:660px; margin:0 auto 3.5rem; }
+.section-heading h2{ font-size:2.1rem; margin-bottom:.9rem; }
+.section-heading p{ font-size:1rem; }
+
+/* ============ BUTTONS ============ */
+.btn-gradient{
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
+  background:var(--gradient);
+  color:#fff;
+  font-weight:700;
+  font-size:.95rem;
+  padding:.85rem 1.7rem;
+  border-radius:10px;
+  border:none;
+  box-shadow:0 12px 26px -10px rgba(139,62,242,.55);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.btn-gradient:hover{
+  color:#fff;
+  transform:translateY(-3px);
+  box-shadow:0 18px 32px -10px rgba(214,36,159,.5);
+}
+.btn-outline-purple{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  border:1.5px solid #DED7F5;
+  color:var(--text-dark);
+  font-weight:700;
+  font-size:.95rem;
+  padding:.85rem 1.7rem;
+  border-radius:10px;
+  background:#fff;
+  transition:all .25s ease;
+}
+.btn-outline-purple:hover{
+  color:var(--purple);
+  border-color:var(--purple);
+  background:var(--purple-soft);
+}
+.btn-white-solid{
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
+  background:#fff;
+  color:var(--purple-dark);
+  font-weight:700;
+  font-size:.95rem;
+  padding:.9rem 1.8rem;
+  border-radius:10px;
+  transition:transform .25s ease;
+}
+.btn-white-solid:hover{ color:var(--purple-dark); transform:translateY(-3px); }
+.btn-outline-white{
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
+  border:1.5px solid rgba(255,255,255,.6);
+  color:#fff;
+  font-weight:700;
+  font-size:.95rem;
+  padding:.9rem 1.8rem;
+  border-radius:10px;
+  background:transparent;
+  transition:all .25s ease;
+}
+.btn-outline-white:hover{ color:#fff; background:rgba(255,255,255,.15); }
+
+.btn-nav-cta{
+  background:var(--purple);
+  color:#fff !important;
+  font-weight:700;
+  font-size:.9rem;
+  padding:.6rem 1.35rem;
+  border-radius:9px;
+  transition:background .2s ease, transform .2s ease;
+}
+.btn-nav-cta:hover{ background:var(--purple-dark); transform:translateY(-2px); }
+
+/* ============ NAVBAR ============ */
+.xevai-navbar{
+  background:#fff;
+  border-bottom:1px solid var(--border);
+  padding:.85rem 0;
+  transition:box-shadow .3s ease;
+}
+.xevai-navbar.scrolled{ box-shadow:0 6px 20px -14px rgba(20,22,43,.25); }
+.brand{
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  font-weight:700;
+  font-size:1.25rem;
+  color:var(--text-dark);
+}
+.brand-icon{
+  width:38px; height:38px;
+  border-radius:10px;
+  background:var(--gradient);
+  display:flex; align-items:center; justify-content:center;
+  color:#fff;
+  font-size:1.05rem;
+}
+.xevai-navbar .nav-link{
+  color:var(--text-gray) !important;
+  font-weight:500;
+  font-size:.95rem;
+  padding:.5rem 1rem !important;
+  transition:color .2s ease;
+}
+.xevai-navbar .nav-link:hover{ color:var(--purple) !important; }
+.navbar-toggler{ border-color:var(--border); }
+
+.xevai-navbar .nav-item.dropdown{ position:relative; }
+.xevai-navbar .nav-dropdown-toggle{
+  background:none;
+  border:none;
+  color:var(--text-gray);
+  font-weight:500;
+  font-size:.95rem;
+  padding:.5rem 1rem;
+  display:flex;
+  align-items:center;
+  gap:.4rem;
+  cursor:pointer;
+  font-family:var(--font);
+  transition:color .2s ease;
+}
+.xevai-navbar .nav-dropdown-toggle:hover,
+.xevai-navbar .nav-item.dropdown.show > .nav-dropdown-toggle{ color:var(--purple); }
+.xevai-navbar .dropdown-icon{ font-size:.65rem; transition:transform .25s ease; }
+.xevai-navbar .nav-item.dropdown.show .dropdown-icon{ transform:rotate(180deg); }
+
+.xevai-navbar .dropdown-menu{
+  position:absolute;
+  top:calc(100% + 12px);
+  left:0;
+  min-width:250px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:12px;
+  box-shadow:0 18px 40px -18px rgba(20,22,43,.28);
+  padding:.5rem;
+  margin:0;
+  display:block;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px);
+  transition:opacity .22s ease, transform .22s ease, visibility .22s;
+}
+.xevai-navbar .nav-item.dropdown.show > .dropdown-menu{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+.xevai-navbar .dropdown-item{
+  display:block;
+  padding:.6rem .85rem;
+  border-radius:8px;
+  font-size:.9rem;
+  font-weight:500;
+  color:var(--text-gray);
+  white-space:nowrap;
+  transition:background .15s ease, color .15s ease;
+}
+.xevai-navbar .dropdown-item:hover{
+  background:var(--bg-soft);
+  color:var(--purple);
+}
+
+
+/* ============ HERO ============ */
+.hero{
+  padding:150px 0 60px;
+  background:var(--bg-soft);
+}
+.hero h1{
+  font-size:2.95rem;
+  line-height:1.15;
+  margin-bottom:1.4rem;
+}
+.hero-text{ font-size:1.05rem; max-width:570px; margin-bottom:1.9rem; }
+
+.tech-badges{
+  display:flex; flex-wrap:wrap; gap:.6rem;
+  margin-bottom:2.2rem;
+}
+.tech-badges span{
+  font-size:.82rem;
+  font-weight:600;
+  color:var(--text-dark);
+  background:#fff;
+  border:1px solid var(--border);
+  padding:.45rem .95rem;
+  border-radius:50px;
+}
+.hero-actions{ display:flex; gap:1rem; flex-wrap:wrap; }
+
+.hero-visual{
+  position:relative;
+  border-radius:22px;
+  background:linear-gradient(160deg, var(--teal-1) 0%, var(--teal-2) 100%);
+  min-height:440px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  box-shadow:0 30px 60px -25px rgba(10,110,119,.55);
+}
+.hero-visual::before{
+  content:"";
+  position:absolute; inset:0;
+  background:radial-gradient(circle at 30% 20%, rgba(255,255,255,.14) 0%, rgba(255,255,255,0) 55%);
+}
+
+/* Agent pipeline diagram */
+.agent-flow{
+  position:relative;
+  width:100%;
+  max-width:340px;
+  z-index:2;
+}
+.agent-node{
+  background:rgba(255,255,255,.97);
+  border-radius:14px;
+  padding:.9rem 1.1rem;
+  display:flex;
+  align-items:center;
+  gap:.7rem;
+  font-weight:700;
+  font-size:.88rem;
+  color:var(--text-dark);
+  box-shadow:0 14px 30px -14px rgba(0,0,0,.4);
+  margin-bottom:1.15rem;
+}
+.agent-node i{ color:var(--purple); font-size:1.1rem; }
+.agent-node.center{
+  background:var(--gradient);
+  color:#fff;
+  margin-left:1.6rem;
+}
+.agent-node.center i{ color:#fff; }
+.agent-connector{
+  width:2px;
+  height:22px;
+  background:rgba(255,255,255,.5);
+  margin:0 auto 1.15rem 2.4rem;
+}
+
+.orbit-card{
+  position:absolute;
+  background:#fff;
+  border-radius:12px;
+  padding:.65rem .95rem;
+  font-size:.78rem;
+  font-weight:700;
+  color:var(--text-dark);
+  display:flex; align-items:center; gap:.5rem;
+  box-shadow:0 16px 30px -14px rgba(0,0,0,.35);
+  z-index:3;
+}
+.orbit-card i{ color:var(--purple); }
+.orbit-1{ top:9%; right:5%; animation:float 4s ease-in-out infinite; }
+.orbit-2{ bottom:8%; left:2%; animation:float 4s ease-in-out infinite 1.2s; }
+@keyframes float{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-12px);} }
+
+/* Hero stats strip */
+.hero-stats{
+  border-top:1px solid #E6E1F5;
+  margin-top:2.6rem;
+  padding-top:2.2rem;
+}
+.hero-stat h3{
+  font-size:2rem;
+  margin-bottom:.2rem;
+  background:var(--gradient);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero-stat span{
+  font-size:.85rem;
+  font-weight:600;
+  color:var(--text-gray);
+}
+
+/* ============ SERVICE CARDS ============ */
+.service-card{
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:2.2rem 1.9rem;
+  height:100%;
+  margin-bottom:1.9rem;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.service-card:hover{
+  transform:translateY(-6px);
+  border-color:#DCC9FA;
+  box-shadow:0 26px 46px -26px rgba(124,58,237,.35);
+}
+.icon-chip{
+  width:52px; height:52px;
+  border-radius:12px;
+  background:var(--purple-soft);
+  color:var(--purple);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.35rem;
+  margin-bottom:1.3rem;
+}
+.service-card h3{ font-size:1.18rem; margin-bottom:.7rem; }
+.service-card p{ font-size:.92rem; margin-bottom:1.15rem; }
+.check-list li{
+  font-size:.87rem;
+  color:var(--text-dark);
+  font-weight:500;
+  padding:.32rem 0;
+  padding-left:1.6rem;
+  position:relative;
+}
+.check-list li i{
+  position:absolute; left:0; top:.42rem;
+  color:var(--purple);
+  font-size:1rem;
+}
+
+/* ============ WHY SECTION ============ */
+.why-heading{ font-size:2.2rem; margin-bottom:1.3rem; }
+.why-text{ font-size:1rem; margin-bottom:1.3rem; }
+.why-pill{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:1.1rem 1.4rem;
+  font-size:.92rem;
+  font-weight:600;
+  color:var(--text-dark);
+  margin-bottom:1rem;
+  box-shadow:0 8px 20px -16px rgba(20,22,43,.2);
+}
+
+/* ============ PROCESS ============ */
+.process-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:2.1rem 1.9rem;
+  height:100%;
+  margin-bottom:1.9rem;
+  position:relative;
+  overflow:hidden;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.process-card:hover{ transform:translateY(-6px); box-shadow:0 26px 46px -26px rgba(124,58,237,.3); }
+.process-num-badge{
+  width:52px; height:52px;
+  border-radius:12px;
+  background:var(--gradient);
+  color:#fff;
+  font-weight:800;
+  font-size:1.15rem;
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:1.2rem;
+  position:relative; z-index:2;
+}
+.process-num-watermark{
+  position:absolute;
+  top:-6px; right:14px;
+  font-size:5rem;
+  font-weight:800;
+  color:var(--purple-soft);
+  z-index:1;
+  line-height:1;
+  user-select:none;
+}
+.process-card h3{ font-size:1.15rem; margin-bottom:.7rem; position:relative; z-index:2;}
+.process-card p{ font-size:.9rem; margin-bottom:1.1rem; position:relative; z-index:2;}
+.process-card .check-list{ position:relative; z-index:2; }
+
+/* ============ COMPARISON STRIP ============ */
+.compare-card{
+  border-radius:var(--radius);
+  padding:2.2rem 2rem;
+  height:100%;
+}
+.compare-card.bad{ background:#fff; border:1px solid var(--border); }
+.compare-card.good{ background:var(--text-dark); }
+.compare-card h4{ font-size:1.1rem; margin-bottom:1.3rem; }
+.compare-card.good h4{ color:#fff; }
+.compare-card.good p{ color:rgba(255,255,255,.75); }
+.compare-card li{
+  font-size:.9rem;
+  padding:.5rem 0;
+  padding-left:1.7rem;
+  position:relative;
+}
+.compare-card.bad li{ color:var(--text-gray); }
+.compare-card.bad li i{ position:absolute; left:0; top:.6rem; color:#C6403F; }
+.compare-card.good li{ color:#fff; font-weight:500; }
+.compare-card.good li i{ position:absolute; left:0; top:.6rem; color:#B48CFF; }
+
+/* ============ FAQ ============ */
+.faq-wrap{ max-width:820px; margin:0 auto; }
+.faq-item{
+  border-bottom:1px solid var(--border);
+}
+.faq-question{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width:100%;
+  background:none;
+  border:none;
+  text-align:left;
+  padding:1.5rem 0;
+  font-size:1.05rem;
+  font-weight:700;
+  color:var(--text-dark);
+  cursor:pointer;
+}
+.faq-question i{
+  color:var(--purple);
+  font-size:1.2rem;
+  transition:transform .3s ease;
+  flex-shrink:0;
+  margin-left:1rem;
+}
+.faq-question[aria-expanded="true"] i{ transform:rotate(180deg); }
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .35s ease;
+}
+.faq-answer-inner{
+  padding:0 0 1.6rem;
+  font-size:.94rem;
+  color:var(--text-gray);
+  max-width:92%;
+}
+
+/* ============ CTA ============ */
+.cta-section{
+  background:var(--gradient);
+  padding:90px 0;
+  text-align:center;
+}
+.cta-section h2{ color:#fff; font-size:2.2rem; margin-bottom:1rem; }
+.cta-section p{ color:rgba(255,255,255,.9); max-width:620px; margin:0 auto 2.2rem; font-size:1.02rem; }
+.cta-actions{ display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; }
+
+/* ============ FOOTER ============ */
+.footer{ background:#fff; padding:70px 0 25px; border-top:1px solid var(--border); }
+.footer-desc{ font-size:.9rem; margin:1.1rem 0 1.4rem; max-width:340px; }
+.footer h5{ font-size:1rem; margin-bottom:1.3rem; }
+.footer-links li{ margin-bottom:.75rem; font-size:.9rem; }
+.footer-links a{ color:var(--text-gray); transition:color .2s ease; }
+.footer-links a:hover{ color:var(--purple); }
+.footer-contact li{
+  display:flex; align-items:center; gap:.7rem;
+  margin-bottom:1rem; font-size:.9rem; color:var(--text-gray);
+}
+.footer-contact .icon-chip-sm{
+  width:36px; height:36px;
+  border-radius:9px;
+  background:var(--purple-soft);
+  color:var(--purple);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1rem;
+  flex-shrink:0;
+}
+.footer-social{ display:flex; gap:.7rem; margin-top:.3rem; }
+.footer-social a{
+  width:38px; height:38px;
+  border-radius:50%;
+  border:1px solid var(--border);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--text-dark);
+  transition:all .2s ease;
+}
+.footer-social a:hover{ background:var(--gradient); border-color:transparent; color:#fff; }
+.footer hr{ border-color:var(--border); margin:2.5rem 0 1.5rem; }
+.footer-bottom{ font-size:.85rem; color:var(--text-gray); }
+.footer-legal a{ color:var(--text-gray); margin-left:1.4rem; font-size:.85rem; }
+.footer-legal a:hover{ color:var(--purple); }
+
+/* ============ SCROLL REVEAL ============ */
+[data-reveal]{ opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
+[data-reveal].in-view{ opacity:1; transform:translateY(0); }
+
+/* ============ BACK TO TOP ============ */
+.back-to-top{
+  position:fixed; bottom:26px; right:26px;
+  width:46px; height:46px; border-radius:50%;
+  background:var(--gradient); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.1rem;
+  box-shadow:0 12px 26px -10px rgba(139,62,242,.6);
+  opacity:0; visibility:hidden; transform:translateY(15px);
+  transition:all .3s ease; z-index:999;
+}
+.back-to-top.show{ opacity:1; visibility:visible; transform:translateY(0); }
+.back-to-top:hover{ color:#fff; transform:translateY(-4px); }
+
+/* =========================================================
+   RESPONSIVE — every breakpoint
+   ========================================================= */
+
+@media (max-width: 1199.98px){
+  .hero h1{ font-size:2.55rem; }
+  .section{ padding:88px 0; }
+}
+
+@media (max-width: 991.98px){
+  .hero{ padding:135px 0 55px; }
+  .hero h1{ font-size:2.2rem; }
+  .hero-visual{ min-height:340px; margin-top:2.5rem; }
+  .orbit-card{ font-size:.72rem; padding:.55rem .8rem; }
+  .section{ padding:75px 0; }
+  .section-heading{ margin-bottom:2.75rem; }
+  .xevai-navbar .navbar-collapse{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:1rem 1.3rem;
+    margin-top:1rem;
+    box-shadow:0 14px 30px -18px rgba(20,22,43,.25);
+  }
+  .xevai-navbar .nav-link{ padding:.6rem 0 !important; }
+
+  .xevai-navbar .nav-item.dropdown{ width:100%; }
+  .xevai-navbar .nav-dropdown-toggle{
+    width:100%;
+    justify-content:space-between;
+    padding:.6rem 0 !important;
+  }
+  .xevai-navbar .dropdown-menu{
+    position:static;
+    box-shadow:none;
+    border:none;
+    padding:.1rem 0 .3rem .9rem;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .28s ease, opacity .22s ease;
+  }
+  .xevai-navbar .nav-item.dropdown.show .dropdown-menu{ max-height:600px; }
+  .xevai-navbar .dropdown-item{ padding:.5rem 0; white-space:normal; }
+
+  .btn-nav-cta{ display:inline-block; margin-top:.5rem; }
+  .why-heading{ font-size:1.9rem; }
+  .hero-stats .col-4{ text-align:center; }
+  .hero-stat h3{ font-size:1.7rem; }
+}
+
+@media (max-width: 767.98px){
+  .hero{ padding:125px 0 50px; text-align:left; }
+  .hero h1{ font-size:1.95rem; }
+  .hero-text{ font-size:.98rem; }
+  .hero-actions .btn-gradient,
+  .hero-actions .btn-outline-purple{ width:100%; justify-content:center; }
+  .hero-actions{ flex-direction:column; }
+  .hero-visual{ min-height:300px; }
+  .orbit-card{ display:none; }
+  .agent-flow{ max-width:280px; }
+  .section{ padding:60px 0; }
+  .section-heading h2{ font-size:1.7rem; }
+  .cta-section h2{ font-size:1.7rem; }
+  .cta-actions{ flex-direction:column; align-items:stretch; }
+  .cta-actions .btn-white-solid,
+  .cta-actions .btn-outline-white{ justify-content:center; }
+  .process-num-watermark{ font-size:4rem; }
+  .compare-card{ margin-bottom:1.5rem; }
+  .footer{ text-align:left; }
+  .footer-bottom{ flex-direction:column; gap:.7rem; text-align:center; }
+  .footer-legal{ margin-top:.3rem; }
+  .footer-legal a{ margin:0 .7rem; }
+}
+
+@media (max-width: 575.98px){
+  .hero{ padding:118px 0 45px; }
+  .hero h1{ font-size:1.7rem; }
+  .brand{ font-size:1.05rem; }
+  .brand-icon{ width:33px; height:33px; font-size:.9rem; }
+  .service-card, .process-card{ padding:1.7rem 1.4rem; }
+  .icon-chip, .process-num-badge{ width:46px; height:46px; font-size:1.15rem; }
+  .faq-question{ font-size:.95rem; padding:1.2rem 0; }
+  .faq-answer-inner{ max-width:100%; font-size:.88rem; }
+  .why-pill{ padding:1rem 1.2rem; font-size:.87rem; }
+  .cta-section{ padding:65px 0; }
+  .back-to-top{ width:42px; height:42px; bottom:18px; right:18px; }
+  .hero-stats{ margin-top:2rem; padding-top:1.6rem; }
+  .hero-stat h3{ font-size:1.5rem; }
+  .hero-stat span{ font-size:.75rem; }
+}
+
+@media (max-width: 359.98px){
+  .hero h1{ font-size:1.5rem; }
+  .tech-badges span{ font-size:.75rem; padding:.4rem .8rem; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation:none !important; transition:none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg xevai-navbar fixed-top" id="mainNav">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <span class="brand-icon"><i class="bi bi-code-slash"></i></span>
+      XevAI Technologies
+    </a>
+    <button class="navbar-toggler" type="button" id="navToggle" aria-label="Toggle navigation">
+      <i class="bi bi-list" style="font-size:1.5rem;"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ml-auto align-items-lg-center">
+
+        <li class="nav-item dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+            Services <i class="bi bi-chevron-down dropdown-icon"></i>
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="AI-Chatbot-Development.html">AI Chatbot Development</a>
+            <a class="dropdown-item" href="AI-Agent-Development.html">AI Agent Development</a>
+            <a class="dropdown-item" href="ChatGPT-Integration.html">ChatGPT Integration</a>
+            <a class="dropdown-item" href="full-stack-web-development.html">Custom Web Development</a>
+            <a class="dropdown-item" href="Mobile-app.html">Mobile App Development</a>
+            <a class="dropdown-item" href="custom-software-development.html">Custom Software Development</a>
+            <a class="dropdown-item" href="ui-ux-development.html">UI/UX Development</a>
+            <a class="dropdown-item" href="cloud-devops.html">Cloud &amp; DevOps</a>
+            <a class="dropdown-item" href="enterprise-software.html">Enterprise Software Development</a>
+          </div>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="#!">Salesforce</a></li>
+
+        <li class="nav-item dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+            Industries <i class="bi bi-chevron-down dropdown-icon"></i>
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#!">Healthcare</a>
+            <a class="dropdown-item" href="#!">FinTech</a>
+            <a class="dropdown-item" href="#!">Real Estate</a>
+            <a class="dropdown-item" href="#!">E-Commerce</a>
+            <a class="dropdown-item" href="#!">Education</a>
+            <a class="dropdown-item" href="#!">Logistics</a>
+            <a class="dropdown-item" href="#!">Manufacturing</a>
+            <a class="dropdown-item" href="#!">Hospitality</a>
+            <a class="dropdown-item" href="#!">Enterprise</a>
+          </div>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="#!">Portfolio</a></li>
+
+        <li class="nav-item dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+            Company <i class="bi bi-chevron-down dropdown-icon"></i>
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#!">About Us</a>
+            <a class="dropdown-item" href="#!">Why XevAI</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+            Resource <i class="bi bi-chevron-down dropdown-icon"></i>
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#!">Blogs</a>
+            <a class="dropdown-item" href="#!">Careers</a>
+          </div>
+        </li>
+
+        <li class="nav-item ml-lg-3">
+          <a href="#contact" class="btn-nav-cta">Contact Us</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6" data-reveal>
+        <span class="eyebrow-tag">AI Agent Development Agency</span>
+        <h1>Autonomous AI Agents That Plan, Decide &amp; Take Action</h1>
+        <p class="hero-text">
+          XevAI designs and builds production-grade AI agents and multi-agent systems for businesses
+          worldwide — agents that don't just answer questions, but reason through multi-step tasks, call
+          your tools and APIs, and execute real work inside your existing systems. Built with LangGraph,
+          CrewAI, AutoGen, OpenAI Agents SDK, and Claude Agent SDK, with human-in-the-loop guardrails so
+          nothing runs unchecked.
+        </p>
+
+        <div class="tech-badges">
+          <span>OpenAI Agents SDK</span>
+          <span>Claude Agent SDK</span>
+          <span>LangGraph</span>
+          <span>CrewAI</span>
+          <span>AutoGen</span>
+          <span>Vector Databases</span>
+          <span>Function Calling</span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#" class="btn-gradient"><i class="bi bi-calendar-check"></i> Book a Consultation</a>
+          <a href="#" class="btn-outline-purple">Contact Us</a>
+        </div>
+
+        <div class="row hero-stats">
+          <div class="col-4">
+            <div class="hero-stat"><h3>70%</h3><span>Fewer manual ops hours</span></div>
+          </div>
+          <div class="col-4">
+            <div class="hero-stat"><h3>24/7</h3><span>Autonomous task execution</span></div>
+          </div>
+          <div class="col-4">
+            <div class="hero-stat"><h3>99.9%</h3><span>Monitored uptime</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6" data-reveal>
+        <div class="hero-visual">
+          <div class="orbit-card orbit-1"><i class="bi bi-diagram-2-fill"></i> Multi-Agent Orchestration</div>
+          <div class="orbit-card orbit-2"><i class="bi bi-shield-check"></i> Human-in-the-Loop Safe</div>
+
+          <div class="agent-flow">
+            <div class="agent-node"><i class="bi bi-box-arrow-in-down"></i> Perceive Input &amp; Context</div>
+            <div class="agent-connector"></div>
+            <div class="agent-node center"><i class="bi bi-cpu"></i> Agent Reasoning Core</div>
+            <div class="agent-connector"></div>
+            <div class="agent-node"><i class="bi bi-tools"></i> Call Tools, APIs &amp; Data</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= SERVICES ================= -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-heading text-center" data-reveal>
+      <span class="eyebrow-tag">What We Build</span>
+      <h2>AI Agent &amp; Multi-Agent System Services</h2>
+      <p>End-to-end agent solutions — from architecture design to production deployment with guardrails</p>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 col-lg-4" data-reveal>
+        <div class="service-card">
+          <div class="icon-chip"><i class="bi bi-robot"></i></div>
+          <h3>Autonomous AI Agents</h3>
+          <p>Custom agents that independently plan and complete multi-step tasks — research, data entry, follow-ups — without a human driving every step.</p>
+          <ul class="check-list">
+            <li><i class="bi bi-check-circle-fill"></i>Goal-Directed Planning</li>
+            <li><i class="bi bi-check-circle-fill"></i>Multi-Step Task Execution</li>
+            <li><i class="bi bi-check-circle-fill"></i>Self-Correction &amp; Retry Logic</li>
+            <li><i class="bi bi-check-circle-fill"></i>Long-Running Task Memory</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-reveal>
+        <div class="service-card">
+          <div class="icon-chip"><i class="bi bi-diagram-3"></i></div>
+          <h3>Multi-Agent Orchestration</h3>
+          <p>Teams of specialized agents that collaborate on complex workflows using LangGraph, CrewAI, and AutoGen — each agent owns one part of the job.</p>
+          <ul class="check-list">
+            <li><i class="bi bi-check-circle-fill"></i>Agent Role Design</li>
+            <li><i class="bi bi-check-circle-fill"></i>Task Delegation &amp; Handoffs</li>
+            <li><i class="bi bi-check-circle-fill"></i>Shared Memory &amp; State</li>
+            <li><i class="bi bi-check-circle-fill"></i>Conflict Resolution Logic</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-reveal>
+        <div class="service-card">
+          <div class="icon-chip"><i class="bi bi-tools"></i></div>
+          <h3>Tool-Using &amp; Function-Calling Agents</h3>
+          <p>Agents that call your internal APIs, databases, and third-party tools to take real action — booking, updating records, sending data — not just replying.</p>
+          <ul class="check-list">
+            <li><i class="bi bi-check-circle-fill"></i>Function &amp; Tool Calling</li>
+            <li><i class="bi bi-check-circle-fill"></i>API &amp; Database Actions</li>
+            <li><i class="bi bi-check-circle-fill"></i>Structured Output Validation</li>
+            <li><i class="bi bi-check-circle-fill"></i>Permission-Scoped Access</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-reveal>
+        <div class="service-card">
+          <div class="icon-chip"><i class="bi bi-search"></i></div>
+          <h3>RAG-Powered Knowledge Agents</h3>
+          <p>Agents grounded in your own data through vector search and retrieval, so decisions and answers are based on your business, not the model's guesses.</p>
+          <ul class="check-list">
+            <li><i class="bi bi-check-circle-fill"></i>Vector Database Setup</li>
+            <li><i class="bi bi-check-circle-fill"></i>Document &amp; Knowledge Ingestion</li>
+            <li><i class="bi bi-check-circle-fill"></i>Retrieval-Augmented Generation</li>
+            <li><i class="bi bi-check-circle-fill"></i>Source Citation &amp; Traceability</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-reveal>
+        <div class="service-card">
+          <div class="icon-chip"><i class="bi bi-plug"></i></div>
+          <h3>Agent-to-System Integration</h3>
+          <p>We connect your agents to CRMs, ERPs, helpdesks, and internal software so their actions flow directly into the tools your team already uses.</p>
+          <ul class="check-list">
+            <li><i class="bi bi-check-circle-fill"></i>CRM &amp; ERP Integration</li>
+            <li><i class="bi bi-check-circle-fill"></i>Internal API Orchestration</li>
+            <li><i class="bi bi-check-circle-fill"></i>Webhook &amp; Event Triggers</li>
+            <li><i class="bi bi-check-circle-fill"></i>Legacy System Connectors</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-reveal>
+        <div class="service-card">
+          <div class="icon-chip"><i class="bi bi-shield-check"></i></div>
+          <h3>Agent Monitoring, Evals &amp; Guardrails</h3>
+          <p>Continuous evaluation, safety guardrails, and human-in-the-loop review points so agents stay accurate, auditable, and safe as they scale.</p>
+          <ul class="check-list">
+            <li><i class="bi bi-check-circle-fill"></i>Automated Evals &amp; Testing</li>
+            <li><i class="bi bi-check-circle-fill"></i>Human-in-the-Loop Review</li>
+            <li><i class="bi bi-check-circle-fill"></i>Action Audit Logs</li>
+            <li><i class="bi bi-check-circle-fill"></i>Cost &amp; Performance Monitoring</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY IT MATTERS ================= -->
+<section class="section section-soft" id="why">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6" data-reveal>
+        <span class="eyebrow-tag">Why It Matters</span>
+        <h2 class="why-heading">Why AI Agents Are Different From Chatbots</h2>
+        <p class="why-text">
+          A chatbot answers questions. An AI agent gets work done. Instead of ending the conversation with
+          "here's how you can do that," a well-built agent plans the steps, calls the right tools, and
+          finishes the task — updating your CRM, triggering a workflow, or completing a multi-step process
+          end to end. For teams buried in repetitive operational work, that difference is the whole point.
+        </p>
+        <p class="why-text">
+          At XevAI we build agents the way top-tier AI agencies do: scoped permissions, evaluation
+          pipelines, and human checkpoints on anything high-stakes — so autonomy never comes at the cost
+          of control.
+        </p>
+      </div>
+      <div class="col-lg-6" data-reveal>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="why-pill"><i class="bi bi-lightning-charge mr-2" style="color:var(--purple);"></i>Automate multi-step tasks end-to-end</div>
+            <div class="why-pill"><i class="bi bi-clock-history mr-2" style="color:var(--purple);"></i>Operate continuously without supervision</div>
+            <div class="why-pill"><i class="bi bi-database-check mr-2" style="color:var(--purple);"></i>Make decisions using live business data</div>
+            <div class="why-pill"><i class="bi bi-plug mr-2" style="color:var(--purple);"></i>Integrate with your existing software stack</div>
+          </div>
+          <div class="col-sm-6">
+            <div class="why-pill"><i class="bi bi-arrows-angle-expand mr-2" style="color:var(--purple);"></i>Scale operations without hiring more staff</div>
+            <div class="why-pill"><i class="bi bi-person-check mr-2" style="color:var(--purple);"></i>Keep humans in the loop on key decisions</div>
+            <div class="why-pill"><i class="bi bi-graph-up-arrow mr-2" style="color:var(--purple);"></i>Improve accuracy with continuous evals</div>
+            <div class="why-pill"><i class="bi bi-cash-coin mr-2" style="color:var(--purple);"></i>Cut operational costs without cutting quality</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMPARISON ================= -->
+<section class="section" id="compare">
+  <div class="container">
+    <div class="section-heading text-center" data-reveal>
+      <span class="eyebrow-tag">The Difference</span>
+      <h2>Chatbot vs. AI Agent</h2>
+      <p>Why forward-thinking teams are moving from reactive chat to autonomous execution</p>
+    </div>
+    <div class="row">
+      <div class="col-md-6" data-reveal>
+        <div class="compare-card bad">
+          <h4>A Standard Chatbot</h4>
+          <p>Reactive, answer-only, stops at the reply</p>
+          <ul>
+            <li><i class="bi bi-x-circle-fill"></i>Answers questions, then waits</li>
+            <li><i class="bi bi-x-circle-fill"></i>Can't take action in your systems</li>
+            <li><i class="bi bi-x-circle-fill"></i>No memory of ongoing tasks</li>
+            <li><i class="bi bi-x-circle-fill"></i>Needs a human for every next step</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6" data-reveal>
+        <div class="compare-card good">
+          <h4>An XevAI AI Agent</h4>
+          <p>Proactive, tool-using, sees a task through</p>
+          <ul>
+            <li><i class="bi bi-check-circle-fill"></i>Plans and completes multi-step tasks</li>
+            <li><i class="bi bi-check-circle-fill"></i>Calls APIs, tools, and databases directly</li>
+            <li><i class="bi bi-check-circle-fill"></i>Maintains context across long workflows</li>
+            <li><i class="bi bi-check-circle-fill"></i>Escalates to humans only when needed</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="section section-soft" id="process">
+  <div class="container">
+    <div class="section-heading text-center" data-reveal>
+      <span class="eyebrow-tag">How We Work</span>
+      <h2>Our AI Agent Implementation Process</h2>
+      <p>A structured approach to delivering AI agents that drive real business results</p>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6" data-reveal>
+        <div class="process-card">
+          <span class="process-num-watermark">01</span>
+          <div class="process-num-badge">01</div>
+          <h3>Discovery &amp; Agent Architecture Design</h3>
+          <p>We map the workflows worth automating, define the agent's scope and permissions, and design the reasoning and tool-access architecture.</p>
+          <ul class="check-list">
+            <li><i class="bi bi-check-circle-fill"></i>Workflow &amp; task audit</li>
+            <li><i class="bi bi-check-circle-fill"></i>Agent scope &amp; permission design</li>
+            <li><i class="bi bi-check-circle-fill"></i>Framework selection (LangGraph, CrewAI, AutoGen)</li>
+            <li><i class="bi bi-check-circle-fill"></i>Tool &amp; API access mapping</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6" data-reveal>
+        <div class="process-card">
+          <span class="process-num-watermark">02</span>
+          <div class="process-num-badge">02</div>
+          <h3>Agent Development &amp; Tool Integration</h3>
+          <p>We build the agent's reasoning core and connect it to the real tools, APIs, and data sources it needs to complete its tasks.</p>
+          <ul class="check-list">
+            <li><i class="bi bi-check-circle-fill"></i>Reasoning &amp; planning logic</li>
+            <li><i class="bi bi-check-circle-fill"></i>Function &amp; tool calling setup</li>
+            <li><i class="bi bi-check-circle-fill"></i>Memory &amp; state management</li>
+            <li><i class="bi bi-check-circle-fill"></i>Error handling &amp; retries</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6" data-reveal>
+        <div class="process-card">
+          <span class="process-num-watermark">03</span>
+          <div class="process-num-badge">03</div>
+          <h3>Orchestration &amp; Multi-Agent Testing</h3>
+          <p>For complex workflows we test how multiple agents collaborate, hand off tasks, and recover from edge cases before anything goes live.</p>
+          <ul class="check-list">
+            <li><i class="bi bi-check-circle-fill"></i>Multi-agent collaboration testing</li>
+            <li><i class="bi bi-check-circle-fill"></i>Automated evals against real scenarios</li>
+            <li><i class="bi bi-check-circle-fill"></i>Edge case &amp; failure testing</li>
+            <li><i class="bi bi-check-circle-fill"></i>Human-in-the-loop checkpoint setup</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6" data-reveal>
+        <div class="process-card">
+          <span class="process-num-watermark">04</span>
+          <div class="process-num-badge">04</div>
+          <h3>Deployment, Monitoring &amp; Guardrails</h3>
+          <p>We deploy your agent to production with full observability, cost tracking, and guardrails, then keep optimizing as it runs.</p>
+          <ul class="check-list">
+            <li><i class="bi bi-check-circle-fill"></i>Production deployment</li>
+            <li><i class="bi bi-check-circle-fill"></i>Action audit logs &amp; observability</li>
+            <li><i class="bi bi-check-circle-fill"></i>Cost &amp; performance monitoring</li>
+            <li><i class="bi bi-check-circle-fill"></i>Ongoing evals &amp; optimization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-heading text-center" data-reveal>
+      <span class="eyebrow-tag">Questions</span>
+      <h2>AI Agent Development Questions Answered</h2>
+    </div>
+
+    <div class="faq-wrap" data-reveal>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What is the difference between an AI chatbot and an AI agent?
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">A chatbot responds to messages. An AI agent reasons through a goal, plans the steps needed, calls tools or APIs to take real action, and keeps working until the task is done or it needs human input. Agents can also coordinate with other agents, hold state across long-running tasks, and operate with minimal supervision.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What frameworks do you use to build AI agents?
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Depending on the use case, we build with LangGraph, CrewAI, AutoGen, the OpenAI Agents SDK, and the Claude Agent SDK. We choose the framework based on how much orchestration complexity, memory, and multi-agent coordination your workflow actually needs — not a one-size-fits-all default.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Can an AI agent take real actions in our systems, not just answer questions?
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes — that's the core of agent development. We connect agents to your CRM, databases, internal APIs, and third-party tools through function calling, so they can update records, send data, trigger workflows, and complete tasks directly, with permission scopes limiting exactly what each agent is allowed to touch.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How do you prevent an AI agent from making costly mistakes?
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">We scope every agent's tool access tightly, add automated evals that test it against real scenarios before launch, and build in human-in-the-loop checkpoints for high-stakes actions like payments, deletions, or external communications. Every action the agent takes is logged for full auditability.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How long does it take to build a production AI agent?
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">A single-purpose agent with a few tool integrations typically takes 3 to 6 weeks. Multi-agent systems with several collaborating agents, complex orchestration, and deep system integrations usually take 8 to 12 weeks, including testing and evaluation before production rollout.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <h2>Ready to Deploy Your First AI Agent?</h2>
+    <p>Let's discuss how an autonomous AI agent can take real work off your team's plate — for clients anywhere in the world.</p>
+    <div class="cta-actions">
+      <a href="#" class="btn-white-solid"><i class="bi bi-calendar-check"></i> Schedule an AI Assessment</a>
+      <a href="#" class="btn-outline-white">Get Your AI Agent Quote <i class="bi bi-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mb-4 mb-lg-0">
+        <a class="brand" href="index.html">
+          <span class="brand-icon"><i class="bi bi-code-slash"></i></span>
+          XevAI Technologies
+        </a>
+        <p class="footer-desc">AI agency and software development company specializing in full stack web development, enterprise software, cloud infrastructure, and AI automation for startups and enterprises worldwide.</p>
+        <div class="footer-social">
+          <a href="#"><i class="bi bi-linkedin"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-twitter-x"></i></a>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-6 mb-4 mb-lg-0">
+        <h5>Services</h5>
+        <ul class="footer-links">
+          <li><a href="AI-Chatbot-Development.html">AI Chatbot Development</a></li>
+          <li><a href="AI-Agent-Development.html">AI Agent Development</a></li>
+          <li><a href="ChatGPT-Integration.html">ChatGPT Integration</a></li>
+          <li><a href="#!">Custom Web Development</a></li>
+          <li><a href="#!">Mobile App Development</a></li>
+          <li><a href="#!">Custom Software Development</a></li>
+          <li><a href="#!">UI/UX Development</a></li>
+          <li><a href="#!">Cloud &amp; DevOps</a></li>
+          <li><a href="#!">Enterprise Software Development</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-2 col-6 mb-4 mb-lg-0">
+        <h5>Company</h5>
+        <ul class="footer-links">
+          <li><a href="#!">About Us</a></li>
+          <li><a href="#!">Why XevAI</a></li>
+          <li><a href="#!">Blogs</a></li>
+          <li><a href="#!">Careers</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3">
+        <h5>Get In Touch</h5>
+        <ul class="footer-contact">
+          <li><span class="icon-chip-sm"><i class="bi bi-envelope"></i></span> hello@xevai.com</li>
+          <li><span class="icon-chip-sm"><i class="bi bi-telephone"></i></span> +1 (437) 239-2448</li>
+          <li><span class="icon-chip-sm"><i class="bi bi-geo-alt"></i></span> Remote &amp; Worldwide Clients</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr>
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center footer-bottom">
+      <span>© 2026 XevAI Technologies. All rights reserved.</span>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms and Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="#top" class="back-to-top" id="backToTop"><i class="bi bi-arrow-up"></i></a>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* ---- Navbar shadow on scroll + back to top button ---- */
+  var nav = document.getElementById('mainNav');
+  var backToTop = document.getElementById('backToTop');
+
+  function onScroll(){
+    if (window.scrollY > 30) { nav.classList.add('scrolled'); }
+    else { nav.classList.remove('scrolled'); }
+
+    if (window.scrollY > 500) { backToTop.classList.add('show'); }
+    else { backToTop.classList.remove('show'); }
+  }
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+
+  /* ---- Mobile nav toggle (no bootstrap.js dependency) ---- */
+  var toggle = document.getElementById('navToggle');
+  var menu = document.getElementById('navMenu');
+  toggle.addEventListener('click', function(){
+    menu.classList.toggle('show');
+  });
+  menu.querySelectorAll('.nav-link, .btn-nav-cta').forEach(function(link){
+    link.addEventListener('click', function(){
+      menu.classList.remove('show');
+    });
+  });
+
+  /* ---- Dropdown menus (Services / Industries / Company / Resource) ---- */
+  var dropdowns = document.querySelectorAll('.xevai-navbar .nav-item.dropdown');
+  dropdowns.forEach(function(dd){
+    var toggleBtn = dd.querySelector('.nav-dropdown-toggle');
+    toggleBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var isOpen = dd.classList.contains('show');
+      dropdowns.forEach(function(other){ other.classList.remove('show'); });
+      if(!isOpen){ dd.classList.add('show'); }
+    });
+  });
+  document.addEventListener('click', function(e){
+    dropdowns.forEach(function(dd){
+      if(!dd.contains(e.target)){ dd.classList.remove('show'); }
+    });
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      dropdowns.forEach(function(dd){ dd.classList.remove('show'); });
+    }
+  });
+  menu.querySelectorAll('.dropdown-item').forEach(function(link){
+    link.addEventListener('click', function(){
+      menu.classList.remove('show');
+      dropdowns.forEach(function(dd){ dd.classList.remove('show'); });
+    });
+  });
+
+
+  /* ---- FAQ accordion (vanilla JS) ---- */
+  document.querySelectorAll('.faq-question').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var answer = btn.nextElementSibling;
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+
+      document.querySelectorAll('.faq-question').forEach(function(other){
+        if (other !== btn) {
+          other.setAttribute('aria-expanded', 'false');
+          other.nextElementSibling.style.maxHeight = null;
+        }
+      });
+
+      if (expanded) {
+        btn.setAttribute('aria-expanded', 'false');
+        answer.style.maxHeight = null;
+      } else {
+        btn.setAttribute('aria-expanded', 'true');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* ---- Scroll reveal ---- */
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(function (el) { observer.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('in-view'); });
+  }
+
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Service Cards</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f3f4f6;
+      padding: 60px 40px;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 32px 28px;
+    }
+
+    /* Icon Box */
+    .card-icon-box {
+      width: 56px;
+      height: 56px;
+      background: #ede9fe;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .card-icon-box i {
+      font-size: 26px;
+      color: #7c3aed;
+    }
+
+    /* Title */
+    .card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 14px;
+    }
+
+    /* Description */
+    .card p {
+      font-size: 15px;
+      color: #6b7280;
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+
+    /* Feature List */
+    .card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .card ul li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #374151;
+      font-weight: 500;
+    }
+
+    .card ul li i {
+      font-size: 18px;
+      color: #7c3aed;
+      flex-shrink: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .cards-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cards-grid">
+
+    <!-- Card 1: Frontend Development -->
+    <div class="card">
+      <div class="card-icon-box">
+        <i class="ti ti-stack-2"></i>
+      </div>
+      <h3>Frontend Development</h3>
+      <p>Modern, responsive user interfaces built with React, Next.js, and TypeScript. We create fast, accessible web applications with server side rendering (SSR), static site generation (SSG), and optimistic UI patterns that deliver great user experiences across all devices and screen sizes.</p>
+      <ul>
+        <li><i class="ti ti-circle-check"></i> React and Next.js</li>
+        <li><i class="ti ti-circle-check"></i> TypeScript and SSR/SSG</li>
+        <li><i class="ti ti-circle-check"></i> Responsive and Accessible Design</li>
+      </ul>
+    </div>
+    <!-- Card 1: Frontend Development -->
+
+    <!-- Card 2: Backend Architecture -->
+    <div class="card">
+      <div class="card-icon-box">
+        <i class="ti ti-database"></i>
+      </div>
+      <h3>Backend Architecture</h3>
+      <p>Scalable server side systems using Python, Django, Node.js, and Express. We design RESTful and GraphQL APIs with proper authentication, rate limiting, caching layers, and database optimization built to handle thousands of concurrent requests while maintaining sub 100ms response times.</p>
+      <ul>
+        <li><i class="ti ti-circle-check"></i> RESTful and GraphQL APIs</li>
+        <li><i class="ti ti-circle-check"></i> Python/Django and Node.js</li>
+        <li><i class="ti ti-circle-check"></i> Database Design and Query Optimization</li>
+      </ul>
+    </div>
+    <!-- Card 2: Backend Architecture -->
+
+
+
+
+    <!-- Card 3: Cloud Infrastructure -->
+    <div class="card">
+      <div class="card-icon-box">
+        <i class="ti ti-cloud"></i>
+      </div>
+      <h3>Cloud Infrastructure</h3>
+      <p>Cloud native architectures on AWS, Google Cloud, and Azure designed for high availability and cost efficiency. We implement infrastructure as code with Terraform, auto scaling groups, container orchestration with Docker and Kubernetes, and fully automated CI/CD pipelines for seamless deployments.</p>
+      <ul>
+        <li><i class="ti ti-circle-check"></i> AWS, GCP, and Azure</li>
+        <li><i class="ti ti-circle-check"></i> Docker and Kubernetes</li>
+        <li><i class="ti ti-circle-check"></i> CI/CD and Infrastructure as Code</li>
+      </ul>
+    </div>
+    <!-- Card 3: Cloud Infrastructure -->
+
+    
+  </div>
+
+</body>
+</html>

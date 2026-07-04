@@ -1,0 +1,355 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
+
+  html, body{
+    width:100%;
+    overflow-x:hidden;
+  }
+
+  body{
+    background:#f7f7f9;
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color:#6b7280;
+  }
+
+  /* ===== CSS VARIABLES ===== */
+  :root{
+    --purple-600:#7c3aed;
+    --purple-500:#8b5cf6;
+    --badge-bg:#f3e8ff;
+    --heading-color:#111827;
+    --text-color:#6b7280;
+    --chip-bg:#f3f4f6;
+    --chip-text:#374151;
+    --card-border:#eceef1;
+  }
+
+  /* ===== CONTAINER SERVICES WRAP ===== */
+  .container.services-wrap{
+    width:100%;
+    max-width:1140px;
+    margin:0 auto;
+    padding:60px 15px;
+    display:block;
+    box-sizing:border-box;
+    overflow:visible;
+  }
+
+  /* ===== ROW LAYOUT ===== */
+  .row{
+    display:flex;
+    flex-wrap:wrap;
+    margin-left:-15px;
+    margin-right:-15px;
+    gap:0;
+    align-items:stretch;
+  }
+
+  /* ===== COLUMN - col-lg-3 col-md-6 mb-4 ===== */
+  .col-lg-3.col-md-6.mb-4{
+    padding-left:15px;
+    padding-right:15px;
+    margin-bottom:24px;
+    flex-basis:25%;
+    flex-grow:0;
+    flex-shrink:0;
+    min-width:0;
+    display:flex;
+    flex-direction:column;
+  }
+
+  @media (max-width:991px){
+    .col-lg-3.col-md-6.mb-4{
+      flex-basis:50%;
+      flex-grow:0;
+      flex-shrink:0;
+    }
+  }
+
+  @media (max-width:767px){
+    .col-lg-3.col-md-6.mb-4{
+      flex-basis:100%;
+      padding-left:12px;
+      padding-right:12px;
+      margin-bottom:20px;
+    }
+  }
+
+  /* ===== SERVICE CARD ===== */
+  .service-card{
+    background:#ffffff;
+    border:1px solid #eceef1;
+    border-radius:16px;
+    padding:32px 28px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    align-items:stretch;
+    height:100%;
+    min-height:350px;
+    overflow:hidden;
+    word-wrap:break-word;
+    overflow-wrap:break-word;
+    transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+    box-shadow:0 1px 3px rgba(0,0,0,0.05);
+  }
+
+  .service-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(124,58,237,0.15);
+    border-color:#d8bfd8;
+    color: white;
+  }
+
+  /* ===== CARD TOP (Flex container for icon and badge) ===== */
+  .card-top{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:24px;
+    width:100%;
+    gap:16px;
+    flex-wrap:nowrap;
+  }
+
+  /* ===== ICON BOX ===== */
+  .icon-box{
+    width:56px;
+    height:56px;
+    min-width:56px;
+    flex-shrink:0;
+    border-radius:14px;
+    background:linear-gradient(135deg,#8b5cf6,#7c3aed);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#ffffff;
+    font-size:24px;
+    box-shadow:0 4px 12px rgba(124,58,237,0.2);
+  }
+
+  /* ===== BADGE PILL CUSTOM ===== */
+  .badge-pill-custom{
+    height: 25px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background:#f3e8ff;
+    color:#7c3aed;
+    font-size:13px;
+    font-weight:600;
+    padding:6px 14px;
+    border-radius:999px;
+    white-space:nowrap;
+    flex-shrink:0;
+    border:1px solid transparent;
+  }
+
+  /* ===== SERVICE CARD H3 ===== */
+  .service-card h3{
+    font-size:24px;
+    font-weight:700;
+    color:#111827;
+    margin:0 0 16px 0;
+    line-height:1.2;
+    word-break:break-word;
+    hyphens:auto;
+  }
+
+  /* ===== SERVICE CARD P ===== */
+  .service-card p{
+    font-size:15px;
+    color:#6b7280;
+    line-height:1.7;
+    margin:0 0 24px 0;
+    word-wrap:break-word;
+    overflow-wrap:break-word;
+    hyphens:auto;
+  }
+
+  /* ===== FEATURE LIST ===== */
+  .feature-list{
+    list-style:none;
+    padding:0;
+    margin:0 0 24px 0;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+
+  /* ===== FEATURE LIST LI ===== */
+  .feature-list li{
+    background:#f3f4f6;
+    color:#374151;
+    font-size:14.5px;
+    font-weight:500;
+    padding:12px 16px;
+    border-radius:10px;
+    margin-bottom:8px;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    gap:12px;
+    word-wrap:break-word;
+    overflow-wrap:break-word;
+    transition:background 0.2s ease;
+  }
+
+  .feature-list li:hover{
+    background:#e5e7eb;
+  }
+
+  .feature-list li:last-child{
+    margin-bottom:0;
+  }
+
+  /* ===== FEATURE LIST LI I (icon) ===== */
+  .feature-list li i{
+    color:#7c3aed;
+    font-size:13px;
+    flex-shrink:0;
+    min-width:16px;
+    text-align:center;
+  }
+
+  /* ===== CARD LINK ===== */
+  .card-link{
+    margin-top:auto;
+    padding-top:8px;
+    color:#7c3aed;
+    font-weight:700;
+    font-size:15px;
+    text-decoration:none;
+    display:inline-flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:flex-start;
+    gap:8px;
+    transition:color 0.2s ease;
+    word-wrap:break-word;
+    overflow-wrap:break-word;
+  }
+
+  .card-link:hover{
+    color:#8b5cf6;
+    
+  }
+
+  /* ===== CARD LINK I (arrow icon) ===== */
+  .card-link i{
+    font-size:13px;
+    flex-shrink:0;
+    transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  .card-link:hover i{
+    transform:translateX(6px);
+  }
+
+  #solutions-pera:hover{
+    color: white;transition: all 2;
+  }
+
+  /* ===== RESPONSIVE BREAKPOINT (max-width: 991px) ===== */
+  @media (max-width:991px){
+    .container.services-wrap{
+      padding:50px 15px;
+    }
+  }
+
+  /* ===== RESPONSIVE BREAKPOINT (max-width: 767px) ===== */
+  @media (max-width:767px){
+    .container.services-wrap{
+      padding:40px 12px;
+      max-width:100%;
+    }
+
+    .row{
+      margin-left:-12px;
+      margin-right:-12px;
+    }
+
+    .col-lg-3.col-md-6.mb-4{
+      padding-left:12px;
+      padding-right:12px;
+    }
+
+    .service-card{
+      padding:24px 20px;
+      min-height:auto;
+    }
+
+    .service-card h3{
+      font-size:20px;
+      margin-bottom:12px;
+    }
+
+    .service-card p{
+      font-size:14px;
+      line-height:1.6;
+      margin-bottom:16px;
+    }
+
+    .card-top{
+      margin-bottom:20px;
+      gap:12px;
+    }
+
+    .icon-box{
+      width:48px;
+      height:48px;
+      min-width:48px;
+      font-size:20px;
+    }
+
+    .badge-pill-custom{
+      font-size:12px;
+      padding:5px 12px;
+    }
+
+    .feature-list li{
+      font-size:13px;
+      padding:10px 14px;
+      margin-bottom:6px;
+    }
+
+    .feature-list li i{
+      font-size:12px;
+      min-width:14px;
+    }
+
+    .card-link{
+      font-size:14px;
+    }
+
+    .card-link i{
+      font-size:12px;
+    }
+  }
+
+  /* Custom_Quotation_button */
+
+   .Custom_Quotation_button{
+    width: 200px;
+    height: 35px;
+    border: 1px solid;
+    border-radius: 12px;
+    background-color: #7c3aed;
+    color: white;
+    transition: all 1s;
+   }
+   .Custom_Quotation_button:hover{
+    width: 205px;
+    height: 33px;
+    border: 1px solid #7c3aed;
+    border-radius: 15px;
+    background-color: #7c3aed31;
+    color: #7c3aed;
+    transition: all 0.5s;   
+   }
+  /* Custom_Quotation_button */

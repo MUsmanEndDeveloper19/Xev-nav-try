@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UI/UX Design & Development | XevAI Technologies</title>
+
+<!-- Bootstrap 4 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --purple:#7c3aed;
+  --purple-light:#a78bfa;
+  --purple-dark:#5b21b6;
+  --purple-bg:#f5f3ff;
+  --pink:#ec4899;
+  --dark-bg:#0f0b1f;
+  --dark-bg2:#161029;
+  --text-dark:#1e1b2e;
+  --text-muted:#6b7280;
+  --border-light:#eceaf5;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Plus Jakarta Sans', sans-serif;
+  color:var(--text-dark);
+  background:#fff;
+  overflow-x:hidden;
+}
+a{text-decoration:none;}
+.container-xl{max-width:1260px;margin:0 auto;padding:0 20px;width:100%;}
+h1,h2,h3,h4,h5{word-wrap:break-word;}
+img,svg{max-width:100%;}
+
+/* ===== NAVBAR ===== */
+.navbar-custom{background:#fff;padding:18px 0;border-bottom:1px solid var(--border-light);}
+.navbar-custom .logo{color:var(--text-dark);font-weight:800;font-size:22px;display:flex;align-items:center;gap:10px;}
+.navbar-custom .logo .logo-icon{
+  width:38px;height:38px;border-radius:10px;
+  background:linear-gradient(135deg,var(--purple),var(--purple-dark));
+  display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;
+}
+.navbar-custom .nav-link{color:#4b4763 !important;font-weight:500;font-size:15px;margin:0 14px;transition:.2s;}
+.navbar-custom .nav-link:hover{color:var(--purple) !important;}
+.btn-purple{
+  background:var(--purple);color:#fff !important;font-weight:600;
+  padding:10px 24px;border-radius:8px;border:none;font-size:14.5px;transition:.25s;display:inline-block;
+}
+.btn-purple:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(124,58,237,.35);color:#fff;}
+.navbar-toggler{border-color:rgba(0,0,0,.1);}
+
+/* ===== SECTION WRAPPER ===== */
+section{width:100%;}
+.section-pad{padding:80px 0;}
+
+/* ===== HERO ===== */
+.hero{padding:80px 0 60px;background:#fff;}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;background:var(--purple-bg);color:var(--purple-dark);
+  padding:9px 20px;border-radius:30px;font-weight:600;font-size:13.5px;margin-bottom:22px;border:1px solid #ede9fe;
+}
+.hero h1{font-size:44px;font-weight:800;line-height:1.2;color:var(--text-dark);}
+.hero .sub{font-size:18px;font-weight:600;color:var(--purple-dark);margin:14px 0 20px;}
+.hero p.lead{font-size:16.5px;color:var(--text-muted);line-height:1.85;margin-bottom:26px;}
+.tech-pill{
+  display:inline-block;background:#fff;border:1px solid var(--border-light);
+  padding:9px 18px;border-radius:9px;font-size:14px;font-weight:600;color:var(--text-dark);
+  margin:0 8px 12px 0;
+}
+.btn-gradient{
+  background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff !important;font-weight:700;
+  padding:14px 26px;border-radius:9px;font-size:15px;display:inline-flex;align-items:center;gap:10px;transition:.25s;
+}
+.btn-gradient:hover{transform:translateY(-2px);box-shadow:0 15px 30px rgba(124,58,237,.35);color:#fff;}
+.btn-outline-dark{
+  border:1.5px solid #d9d6e6;color:var(--text-dark) !important;font-weight:600;
+  padding:13px 26px;border-radius:9px;font-size:15px;display:inline-block;transition:.25s;
+}
+.btn-outline-dark:hover{border-color:var(--purple);color:var(--purple) !important;}
+.hero-visual{
+  background:linear-gradient(135deg,#1e1b3a,#0f0b1f);
+  border-radius:20px;padding:34px;height:100%;min-height:420px;
+  display:flex;flex-direction:column;justify-content:center;gap:16px;position:relative;overflow:hidden;
+}
+.hero-visual::before{
+  content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;
+  background:radial-gradient(circle,rgba(236,72,153,.35),transparent 70%);
+}
+.frame-card{
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;
+  padding:16px 18px;position:relative;z-index:1;
+}
+.frame-card .dot-row{display:flex;gap:6px;margin-bottom:12px;}
+.frame-card .dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.15);}
+.frame-card .bar{height:9px;border-radius:5px;background:rgba(255,255,255,.1);margin-bottom:9px;}
+.frame-card .bar.w60{width:60%;}
+.frame-card .bar.w80{width:80%;}
+.frame-card .bar.w40{width:40%;}
+.frame-card .swatch{display:flex;gap:8px;margin-top:14px;}
+.frame-card .swatch span{width:26px;height:26px;border-radius:7px;}
+
+/* ===== SECTION TITLES ===== */
+.section-title-lg{font-size:32px;font-weight:800;text-align:center;margin-bottom:10px;color:var(--text-dark);}
+.section-sub-c{text-align:center;color:var(--text-muted);font-size:16px;max-width:640px;margin:0 auto 50px;}
+.bg-soft{background:#faf9ff;}
+
+/* ===== SERVICE CARDS (6-up, 3 cols) ===== */
+.svc-card{background:#fff;border:1px solid var(--border-light);border-radius:16px;padding:32px 28px;height:100%;transition:.3s;}
+.svc-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(124,58,237,.10);border-color:#e5defc;}
+.svc-icon{
+  width:52px;height:52px;border-radius:12px;background:var(--purple-bg);
+  display:flex;align-items:center;justify-content:center;color:var(--purple);font-size:22px;margin-bottom:20px;
+}
+.svc-card h4{font-size:19px;font-weight:700;margin-bottom:12px;color:var(--text-dark);}
+.svc-card p{color:var(--text-muted);font-size:14.5px;line-height:1.75;margin-bottom:18px;}
+.svc-card ul{list-style:none;padding:0;margin:0;}
+.svc-card ul li{font-size:14px;color:#3f3b52;padding:6px 0;display:flex;align-items:center;gap:10px;}
+.svc-card ul li i{color:var(--purple);font-size:13px;}
+
+/* ===== WHY IT MATTERS SPLIT ===== */
+.why-title{font-size:34px;font-weight:800;margin-bottom:24px;line-height:1.25;}
+.why-text{font-size:15.5px;color:var(--text-muted);line-height:1.9;margin-bottom:20px;}
+.benefit-card{
+  background:#fff;border:1px solid var(--border-light);border-radius:12px;
+  padding:18px 22px;margin-bottom:14px;font-size:15px;font-weight:500;color:var(--text-dark);
+  display:flex;align-items:center;gap:14px;transition:.2s;
+}
+.benefit-card:hover{border-color:var(--purple-light);transform:translateX(4px);}
+.benefit-card i{color:var(--purple);font-size:15px;min-width:18px;}
+
+/* ===== PROCESS STEPS ===== */
+.process-card{background:#fff;border:1px solid var(--border-light);border-radius:16px;padding:36px 32px;height:100%;position:relative;overflow:hidden;}
+.process-badge{
+  width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,var(--pink),var(--purple));
+  display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:20px;margin-bottom:22px;
+}
+.process-bg-num{
+  position:absolute;top:14px;right:22px;font-size:64px;font-weight:800;color:var(--purple-bg);z-index:0;line-height:1;
+}
+.process-card h5{font-weight:700;font-size:20px;margin-bottom:12px;position:relative;z-index:1;}
+.process-card p.desc{color:var(--text-muted);font-size:14.5px;margin-bottom:18px;position:relative;z-index:1;}
+.process-card ul{list-style:none;padding:0;margin:0;position:relative;z-index:1;}
+.process-card ul li{font-size:14px;color:#3f3b52;padding:6px 0;display:flex;align-items:center;gap:10px;}
+.process-card ul li i{color:var(--purple);font-size:13px;}
+
+/* ===== FAQ ===== */
+.faq-item{border-bottom:1px solid var(--border-light);}
+.faq-q{
+  padding:26px 4px;font-weight:700;font-size:17px;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;color:var(--text-dark);
+}
+.faq-q i{color:var(--purple);transition:.3s;font-size:15px;}
+.faq-a{max-height:0;overflow:hidden;transition:.3s ease;}
+.faq-a p{color:var(--text-muted);font-size:15px;padding-bottom:22px;margin-bottom:0;line-height:1.8;padding-right:30px;}
+.faq-item.active .faq-a{max-height:300px;}
+.faq-item.active .faq-q i{transform:rotate(180deg);}
+
+/* ===== CTA GRADIENT ===== */
+.cta-gradient{
+  background:linear-gradient(120deg,var(--purple) 0%, var(--pink) 100%);
+  padding:80px 0;text-align:center;
+}
+.cta-gradient h2{color:#fff;font-weight:800;font-size:34px;margin-bottom:16px;}
+.cta-gradient p{color:rgba(255,255,255,.92);font-size:16.5px;max-width:600px;margin:0 auto 34px;}
+.btn-cta-white{
+  background:#fff;color:var(--purple-dark) !important;font-weight:700;padding:14px 28px;border-radius:9px;
+  font-size:15px;display:inline-flex;align-items:center;gap:10px;transition:.25s;
+}
+.btn-cta-white:hover{transform:translateY(-2px);box-shadow:0 15px 30px rgba(0,0,0,.2);}
+.btn-cta-outline{
+  border:1.5px solid rgba(255,255,255,.5);color:#fff !important;font-weight:600;padding:13px 28px;
+  border-radius:9px;font-size:15px;display:inline-block;transition:.25s;
+}
+.btn-cta-outline:hover{background:rgba(255,255,255,.12);}
+
+/* ===== FOOTER ===== */
+.footer{background:#fff;padding:70px 0 30px;border-top:1px solid var(--border-light);}
+.footer h5{color:var(--text-dark);font-weight:700;font-size:17px;margin-bottom:20px;}
+.footer .logo{color:var(--text-dark);font-weight:800;font-size:20px;display:flex;align-items:center;gap:10px;}
+.footer p{color:var(--text-muted);font-size:14.5px;line-height:1.7;}
+.footer a.flink{color:var(--text-muted);font-size:14.5px;display:block;margin-bottom:12px;transition:.2s;}
+.footer a.flink:hover{color:var(--purple);}
+.footer .contact-row{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
+.footer .contact-row .ico{
+  width:40px;height:40px;border-radius:10px;background:var(--purple-bg);color:var(--purple);
+  display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;
+}
+.footer .contact-row span{color:var(--text-dark);font-size:14.5px;font-weight:500;}
+.footer-bottom{border-top:1px solid var(--border-light);margin-top:40px;padding-top:24px;font-size:13.5px;color:var(--text-muted);}
+.social-icon{
+  width:38px;height:38px;border-radius:9px;background:var(--purple-bg);color:var(--purple);
+  display:inline-flex;align-items:center;justify-content:center;margin-right:10px;transition:.2s;
+}
+.social-icon:hover{background:var(--purple);color:#fff;}
+
+/* ===== NAVBAR DROPDOWNS ===== */
+.navbar-custom .dropdown-toggle::after{
+  vertical-align:1px;border-top-color:#4b4763;transition:.2s;margin-left:6px;
+}
+.navbar-custom .nav-item.show .dropdown-toggle::after{transform:rotate(180deg);}
+.dropdown-menu{
+  border:1px solid var(--border-light);border-radius:12px;
+  box-shadow:0 18px 40px rgba(30,27,46,.1);padding:10px;margin-top:10px;min-width:250px;
+}
+.dropdown-item{
+  padding:10px 14px;border-radius:8px;font-size:14.5px;font-weight:500;color:#4b4763;transition:.15s;
+}
+.dropdown-item:hover,.dropdown-item:focus{background:var(--purple-bg);color:var(--purple-dark);}
+@media(min-width:992px){
+  .navbar-custom .nav-item.dropdown:hover > .dropdown-menu{display:block;margin-top:0;animation:fadeDown .18s ease;}
+  .navbar-custom .nav-item.dropdown:hover > .dropdown-toggle::after{transform:rotate(180deg);}
+}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:translateY(0);}}
+@media(max-width:991px){
+  .dropdown-menu{box-shadow:none;border:none;background:#faf9ff;margin-top:2px;margin-bottom:6px;}
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1200px){
+  .container-xl{max-width:100%;}
+}
+@media(max-width:991px){
+  .hero h1{font-size:34px;}
+  .section-title-lg{font-size:27px;}
+  .why-title{font-size:27px;}
+  .hero-visual{margin-top:40px;min-height:320px;}
+  .cta-gradient h2{font-size:27px;}
+}
+@media(max-width:767px){
+  .hero{padding:50px 0 40px;text-align:center;}
+  .hero .btns{justify-content:center;display:flex;flex-wrap:wrap;gap:10px;}
+  .section-pad{padding:56px 0;}
+  .cta-gradient{padding:56px 0;}
+  .process-bg-num{font-size:46px;}
+}
+@media(max-width:575px){
+  .hero h1{font-size:28px;}
+  .hero .sub{font-size:15.5px;}
+  .btn-gradient,.btn-outline-dark,.btn-cta-white,.btn-cta-outline{width:100%;justify-content:center;text-align:center;}
+  .section-title-lg{font-size:23px;}
+  .why-title{font-size:23px;}
+  .container-xl{padding:0 16px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container-xl d-flex align-items-center justify-content-between">
+    <a class="logo" href="index.html">
+      <span class="logo-icon"><i class="fas fa-code"></i></span>
+      XevAI Technologies
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+      <ul class="navbar-nav align-items-lg-center">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
+          <div class="dropdown-menu" aria-labelledby="servicesDropdown">
+            <a class="dropdown-item" href="ai-chatbot-development.html">AI Chatbot Development</a>
+            <a class="dropdown-item" href="ai-agent-development.html">AI Agent Development</a>
+            <a class="dropdown-item" href="chatgpt-integration.html">ChatGPT Integration</a>
+            <a class="dropdown-item" href="custom-web-development.html">Custom Web Development</a>
+            <a class="dropdown-item" href="mobile-app-development.html">Mobile App Development</a>
+            <a class="dropdown-item" href="custom-software-development.html">Custom Software Development</a>
+            <a class="dropdown-item" href="ui-ux-development.html">UI/UX Development</a>
+            <a class="dropdown-item" href="cloud-devops.html">Cloud & DevOps</a>
+            <a class="dropdown-item" href="enterprise-software.html">Enterprise Software Development</a>
+          </div>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="#">Salesforce</a></li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="industriesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Industries</a>
+          <div class="dropdown-menu" aria-labelledby="industriesDropdown">
+            <a class="dropdown-item" href="#">Healthcare</a>
+            <a class="dropdown-item" href="#">FinTech</a>
+            <a class="dropdown-item" href="#">E-commerce</a>
+            <a class="dropdown-item" href="#">Real Estate</a>
+            <a class="dropdown-item" href="#">Education</a>
+            <a class="dropdown-item" href="#">Logistics</a>
+            <a class="dropdown-item" href="#">Manufacturing</a>
+            <a class="dropdown-item" href="#">Hospitality</a>
+            <a class="dropdown-item" href="#">Enterprise</a>
+          </div>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="#">Portfolio</a></li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="companyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Company</a>
+          <div class="dropdown-menu" aria-labelledby="companyDropdown">
+            <a class="dropdown-item" href="#">About Us</a>
+            <a class="dropdown-item" href="#">Why XevAI</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="resourceDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resource</a>
+          <div class="dropdown-menu" aria-labelledby="resourceDropdown">
+            <a class="dropdown-item" href="#">Blogs</a>
+            <a class="dropdown-item" href="#">Careers</a>
+          </div>
+        </li>
+
+        <li class="nav-item mt-2 mt-lg-0 ml-lg-3">
+          <a href="#contact" class="btn-purple">Contact Us</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="container-xl">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <span class="hero-badge"><i class="fas fa-pen-nib"></i> UI/UX Design & Development Agency</span>
+        <h1>UI/UX Design & Development That Converts</h1>
+        <p class="sub">From user research to pixel-perfect, production-ready interfaces</p>
+        <p class="lead">As a leading UI/UX design agency, we craft intuitive, conversion-focused digital experiences backed by real user research, not guesswork. Our team designs wireframes, interactive prototypes, and complete design systems, then hands off developer-ready UI built with clean, accessible code. We combine visual design with usability testing, information architecture, and responsive engineering to create products that users genuinely enjoy using — and that measurably improve engagement, retention, and conversion rates.</p>
+        <div class="mb-4">
+          <span class="tech-pill">Figma</span>
+          <span class="tech-pill">Adobe XD</span>
+          <span class="tech-pill">Framer</span>
+          <span class="tech-pill">Webflow</span>
+          <span class="tech-pill">React / Tailwind</span>
+          <span class="tech-pill">Design Systems</span>
+        </div>
+        <div class="btns">
+          <a href="#contact" class="btn-gradient"><i class="far fa-calendar"></i> Book a Consultation</a>
+          <a href="#contact" class="btn-outline-dark">Contact Us</a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="hero-visual">
+          <div class="frame-card">
+            <div class="dot-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="bar w60"></div>
+            <div class="bar w80"></div>
+            <div class="bar w40"></div>
+          </div>
+          <div class="frame-card">
+            <div class="swatch">
+              <span style="background:var(--purple);"></span>
+              <span style="background:var(--pink);"></span>
+              <span style="background:var(--purple-light);"></span>
+              <span style="background:#fff;"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6 SERVICE CARDS ===== -->
+<section class="section-pad">
+  <div class="container-xl">
+    <h2 class="section-title-lg">What We Design & Build</h2>
+    <p class="section-sub-c">End-to-end UI/UX solutions engineered for usability, accessibility, and conversion</p>
+    <div class="row">
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="svc-card">
+          <div class="svc-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
+          <h4>User Research & Strategy</h4>
+          <p>We uncover real user needs through interviews, surveys, and competitor analysis before any design work begins.</p>
+          <ul>
+            <li><i class="fas fa-circle-check"></i> User Interviews & Surveys</li>
+            <li><i class="fas fa-circle-check"></i> Persona & Journey Mapping</li>
+            <li><i class="fas fa-circle-check"></i> Competitive Analysis</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="svc-card">
+          <div class="svc-icon"><i class="fas fa-sitemap"></i></div>
+          <h4>Wireframing & Prototyping</h4>
+          <p>Low to high-fidelity wireframes and interactive prototypes that let you test flows before writing code.</p>
+          <ul>
+            <li><i class="fas fa-circle-check"></i> Low & High-Fidelity Wireframes</li>
+            <li><i class="fas fa-circle-check"></i> Clickable Interactive Prototypes</li>
+            <li><i class="fas fa-circle-check"></i> Information Architecture</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="svc-card">
+          <div class="svc-icon"><i class="fas fa-palette"></i></div>
+          <h4>Visual & UI Design</h4>
+          <p>Pixel-perfect, on-brand interface design across web and mobile, built on a scalable component library.</p>
+          <ul>
+            <li><i class="fas fa-circle-check"></i> High-Fidelity UI Screens</li>
+            <li><i class="fas fa-circle-check"></i> Brand-Aligned Visual Design</li>
+            <li><i class="fas fa-circle-check"></i> Component-Based Layouts</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="svc-card">
+          <div class="svc-icon"><i class="fas fa-layer-group"></i></div>
+          <h4>Design System Development</h4>
+          <p>Reusable component libraries and style guides that keep your product consistent as it scales.</p>
+          <ul>
+            <li><i class="fas fa-circle-check"></i> Component Libraries</li>
+            <li><i class="fas fa-circle-check"></i> Typography & Color Systems</li>
+            <li><i class="fas fa-circle-check"></i> Figma Design Tokens</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="svc-card">
+          <div class="svc-icon"><i class="fas fa-vial"></i></div>
+          <h4>Usability Testing</h4>
+          <p>We run moderated and unmoderated usability tests to validate designs with real users before launch.</p>
+          <ul>
+            <li><i class="fas fa-circle-check"></i> Moderated User Testing</li>
+            <li><i class="fas fa-circle-check"></i> A/B & Conversion Testing</li>
+            <li><i class="fas fa-circle-check"></i> Heatmaps & Session Analysis</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="svc-card">
+          <div class="svc-icon"><i class="fas fa-code"></i></div>
+          <h4>Front-End Implementation</h4>
+          <p>We convert final designs into clean, responsive, accessible code ready for production deployment.</p>
+          <ul>
+            <li><i class="fas fa-circle-check"></i> Pixel-Accurate Development</li>
+            <li><i class="fas fa-circle-check"></i> WCAG Accessibility Compliance</li>
+            <li><i class="fas fa-circle-check"></i> Fully Responsive Builds</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY IT MATTERS SPLIT SECTION ===== -->
+<section class="section-pad bg-soft">
+  <div class="container-xl">
+    <div class="row align-items-start">
+      <div class="col-lg-5 mb-5 mb-lg-0">
+        <h2 class="why-title">Why UI/UX Design Matters for Your Business</h2>
+        <p class="why-text">Great design isn't decoration — it's a business driver. Companies that prioritize UX report up to 200% higher conversion rates and 400% higher user engagement compared to competitors with poorly designed products. Every friction point in your interface costs you users, trust, and revenue.</p>
+        <p class="why-text">Our team designs with data, not opinions. We combine user research, usability testing, and conversion-focused design principles to build interfaces that don't just look good — they perform, retain users, and turn visitors into customers.</p>
+      </div>
+      <div class="col-lg-7">
+        <div class="benefit-card"><i class="fas fa-circle-check"></i> Increase conversion rates with friction-free user flows</div>
+        <div class="benefit-card"><i class="fas fa-circle-check"></i> Reduce development costs with validated designs before code</div>
+        <div class="benefit-card"><i class="fas fa-circle-check"></i> Improve user retention with intuitive, familiar interfaces</div>
+        <div class="benefit-card"><i class="fas fa-circle-check"></i> Build brand trust with consistent, professional visual design</div>
+        <div class="benefit-card"><i class="fas fa-circle-check"></i> Scale product design with a reusable component system</div>
+        <div class="benefit-card"><i class="fas fa-circle-check"></i> Meet accessibility standards and reach a wider audience</div>
+        <div class="benefit-card"><i class="fas fa-circle-check"></i> Make data-driven design decisions from real user testing</div>
+        <div class="benefit-card"><i class="fas fa-circle-check"></i> Launch faster with developer-ready, pixel-accurate handoffs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4-STEP PROCESS ===== -->
+<section class="section-pad">
+  <div class="container-xl">
+    <h2 class="section-title-lg">Our UI/UX Design Process</h2>
+    <p class="section-sub-c">A structured approach to designing products that users love and businesses depend on</p>
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <div class="process-card">
+          <span class="process-bg-num">01</span>
+          <div class="process-badge">01</div>
+          <h5>Discovery & User Research</h5>
+          <p class="desc">We study your users, business goals, and competitors to define a clear design strategy.</p>
+          <ul>
+            <li><i class="fas fa-circle-check"></i> Stakeholder interviews</li>
+            <li><i class="fas fa-circle-check"></i> User research and personas</li>
+            <li><i class="fas fa-circle-check"></i> Competitive UX audit</li>
+            <li><i class="fas fa-circle-check"></i> Information architecture</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="process-card">
+          <span class="process-bg-num">02</span>
+          <div class="process-badge">02</div>
+          <h5>Wireframing & Prototyping</h5>
+          <p class="desc">We map user flows into wireframes and interactive prototypes for early validation.</p>
+          <ul>
+            <li><i class="fas fa-circle-check"></i> Low-fidelity wireframes</li>
+            <li><i class="fas fa-circle-check"></i> Interactive prototypes</li>
+            <li><i class="fas fa-circle-check"></i> User flow mapping</li>
+            <li><i class="fas fa-circle-check"></i> Stakeholder feedback rounds</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="process-card">
+          <span class="process-bg-num">03</span>
+          <div class="process-badge">03</div>
+          <h5>Visual Design & Testing</h5>
+          <p class="desc">We create high-fidelity UI screens and validate them through real usability testing.</p>
+          <ul>
+            <li><i class="fas fa-circle-check"></i> High-fidelity UI design</li>
+            <li><i class="fas fa-circle-check"></i> Design system creation</li>
+            <li><i class="fas fa-circle-check"></i> Usability testing sessions</li>
+            <li><i class="fas fa-circle-check"></i> Design iteration and refinement</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="process-card">
+          <span class="process-bg-num">04</span>
+          <div class="process-badge">04</div>
+          <h5>Development & Handoff</h5>
+          <p class="desc">We build pixel-accurate, responsive front-end code or hand off developer-ready assets.</p>
+          <ul>
+            <li><i class="fas fa-circle-check"></i> Pixel-accurate front-end build</li>
+            <li><i class="fas fa-circle-check"></i> Responsive across all devices</li>
+            <li><i class="fas fa-circle-check"></i> Accessibility (WCAG) compliance</li>
+            <li><i class="fas fa-circle-check"></i> Design QA and final polish</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section-pad bg-soft">
+  <div class="container-xl" style="max-width:900px;">
+    <h2 class="section-title-lg">UI/UX Design Questions Answered</h2>
+    <div class="mt-5">
+      <div class="faq-item active">
+        <div class="faq-q">What's the difference between UI design and UX design? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-a"><p>UX design focuses on how a product functions and feels to use — the flow, structure, and logic. UI design focuses on how it looks — colors, typography, and visual layout. We handle both together for a cohesive result.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How long does a UI/UX design project take? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-a"><p>A typical website or app design project takes 4 to 8 weeks depending on scope, from research through final developer handoff. Larger platforms with multiple user flows can take 10 to 14 weeks.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you also build the front-end code, or just design? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-a"><p>Both. We can deliver Figma design files ready for your developers, or build the fully responsive, production-ready front-end ourselves using React, Tailwind, or Webflow.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can you redesign our existing product without disrupting users? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-a"><p>Yes. We run UX audits on existing products and roll out redesigns incrementally, using data and user testing to validate changes before a full rollout.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Will the design meet accessibility standards? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-a"><p>Yes. All our designs and front-end builds follow WCAG accessibility guidelines, covering color contrast, keyboard navigation, and screen reader compatibility.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA GRADIENT ===== -->
+<section class="cta-gradient" id="contact">
+  <div class="container-xl">
+    <h2>Ready to Design a Product Users Love?</h2>
+    <p>Let's discuss how better UI/UX design can improve your conversion rates, retention, and overall user experience.</p>
+    <div class="d-flex flex-wrap justify-content-center" style="gap:14px;">
+      <a href="#" class="btn-cta-white"><i class="far fa-calendar"></i> Schedule a Free Consultation</a>
+      <a href="#" class="btn-cta-outline">Get Your Design Quote <i class="fas fa-arrow-right ml-1"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container-xl">
+    <div class="row">
+      <div class="col-lg-3 mb-4">
+        <a href="#" class="logo mb-3"><span class="logo-icon"><i class="fas fa-code"></i></span>XevAI Technologies</a>
+        <p>AI agency and software development company specializing in full stack web development, custom software, UI/UX design, and AI automation for startups and enterprises worldwide.</p>
+        <div class="mt-3">
+          <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3 mb-4">
+        <h5>Services</h5>
+        <a href="ai-chatbot-development.html" class="flink">AI Chatbot Development</a>
+        <a href="ai-agent-development.html" class="flink">AI Agent Development</a>
+        <a href="chatgpt-integration.html" class="flink">ChatGPT Integration</a>
+        <a href="custom-web-development.html" class="flink">Custom Web Development</a>
+        <a href="mobile-app-development.html" class="flink">Mobile App Development</a>
+        <a href="custom-software-development.html" class="flink">Custom Software Development</a>
+        <a href="ui-ux-development.html" class="flink">UI/UX Development</a>
+        <a href="cloud-devops.html" class="flink">Cloud & DevOps</a>
+        <a href="enterprise-software.html" class="flink">Enterprise Software Development</a>
+      </div>
+      <div class="col-6 col-lg-2 mb-4">
+        <h5>Company</h5>
+        <a href="#" class="flink">About Us</a>
+        <a href="#" class="flink">Why XevAI</a>
+        <a href="#" class="flink">Blogs</a>
+        <a href="#" class="flink">Careers</a>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <h5>Get In Touch</h5>
+        <div class="contact-row"><div class="ico"><i class="fas fa-envelope"></i></div><span>hello@xevai.com</span></div>
+        <div class="contact-row"><div class="ico"><i class="fas fa-phone"></i></div><span>+1 (437) 239-2448</span></div>
+        <div class="contact-row"><div class="ico"><i class="fas fa-location-dot"></i></div><span>Remote &amp; Worldwide Clients</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom d-flex flex-wrap justify-content-between">
+      <span>© 2026 XevAI Technologies. All rights reserved.</span>
+      <span><a href="#" class="flink" style="display:inline;">Privacy Policy</a> &nbsp;|&nbsp; <a href="#" class="flink" style="display:inline;">Terms and Conditions</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js"></script>
+<script>
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click', function(){
+    var item = this.parentElement;
+    var wasActive = item.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(function(el){ el.classList.remove('active'); });
+    if(!wasActive){ item.classList.add('active'); }
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChatGPT Integration Agency | XevAI</title>
+<meta name="description" content="XevAI integrates ChatGPT and the OpenAI API into websites, apps, and business systems worldwide — Custom GPTs, Assistants API, embeddings, and enterprise ChatGPT deployment.">
+
+<!-- Bootstrap 4 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   XevAI — ChatGPT Integration Agency
+   Theme: white / light-lavender base, purple → magenta
+   gradient accent, purple icon chips.
+   ========================================================= */
+
+:root{
+  --bg:#ffffff;
+  --bg-soft:#F7F4FC;
+  --card-bg:#ffffff;
+  --border:#EAE5F6;
+  --text-dark:#14162B;
+  --text-gray:#5B5F73;
+  --purple:#7C3AED;
+  --purple-dark:#6D28D9;
+  --purple-soft:#F3E8FF;
+  --pink:#D6249F;
+  --gradient:linear-gradient(135deg,#8B3EF2 0%,#D6249F 100%);
+  --teal-1:#0C8B93;
+  --teal-2:#0A6E77;
+  --radius:16px;
+  --font:'Inter', sans-serif;
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  font-family:var(--font);
+  color:var(--text-gray);
+  background:var(--bg);
+  overflow-x:hidden;
+}
+h1,h2,h3,h4,h5{
+  font-family:var(--font);
+  color:var(--text-dark);
+  font-weight:800;
+}
+p{ color:var(--text-gray); line-height:1.75; margin-bottom:0; }
+a{ text-decoration:none; }
+a:hover{ text-decoration:none; }
+ul{ list-style:none; padding:0; margin:0; }
+
+.section{ padding:100px 0; }
+.section-soft{ background:var(--bg-soft); }
+
+.eyebrow-tag{
+  display:inline-block;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--purple);
+  margin-bottom:.9rem;
+}
+
+.section-heading{ max-width:660px; margin:0 auto 3.5rem; }
+.section-heading h2{ font-size:2.1rem; margin-bottom:.9rem; }
+.section-heading p{ font-size:1rem; }
+
+/* ============ BUTTONS ============ */
+.btn-gradient{
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
+  background:var(--gradient);
+  color:#fff;
+  font-weight:700;
+  font-size:.95rem;
+  padding:.85rem 1.7rem;
+  border-radius:10px;
+  border:none;
+  box-shadow:0 12px 26px -10px rgba(139,62,242,.55);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.btn-gradient:hover{
+  color:#fff;
+  transform:translateY(-3px);
+  box-shadow:0 18px 32px -10px rgba(214,36,159,.5);
+}
+.btn-outline-purple{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  border:1.5px solid #DED7F5;
+  color:var(--text-dark);
+  font-weight:700;
+  font-size:.95rem;
+  padding:.85rem 1.7rem;
+  border-radius:10px;
+  background:#fff;
+  transition:all .25s ease;
+}
+.btn-outline-purple:hover{
+  color:var(--purple);
+  border-color:var(--purple);
+  background:var(--purple-soft);
+}
+.btn-white-solid{
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
+  background:#fff;
+  color:var(--purple-dark);
+  font-weight:700;
+  font-size:.95rem;
+  padding:.9rem 1.8rem;
+  border-radius:10px;
+  transition:transform .25s ease;
+}
+.btn-white-solid:hover{ color:var(--purple-dark); transform:translateY(-3px); }
+.btn-outline-white{
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
+  border:1.5px solid rgba(255,255,255,.6);
+  color:#fff;
+  font-weight:700;
+  font-size:.95rem;
+  padding:.9rem 1.8rem;
+  border-radius:10px;
+  background:transparent;
+  transition:all .25s ease;
+}
+.btn-outline-white:hover{ color:#fff; background:rgba(255,255,255,.15); }
+
+.btn-nav-cta{
+  background:var(--purple);
+  color:#fff !important;
+  font-weight:700;
+  font-size:.9rem;
+  padding:.6rem 1.35rem;
+  border-radius:9px;
+  transition:background .2s ease, transform .2s ease;
+}
+.btn-nav-cta:hover{ background:var(--purple-dark); transform:translateY(-2px); }
+
+/* ============ NAVBAR ============ */
+.xevai-navbar{
+  background:#fff;
+  border-bottom:1px solid var(--border);
+  padding:.85rem 0;
+  transition:box-shadow .3s ease;
+}
+.xevai-navbar.scrolled{ box-shadow:0 6px 20px -14px rgba(20,22,43,.25); }
+.brand{
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  font-weight:700;
+  font-size:1.25rem;
+  color:var(--text-dark);
+}
+.brand-icon{
+  width:38px; height:38px;
+  border-radius:10px;
+  background:var(--gradient);
+  display:flex; align-items:center; justify-content:center;
+  color:#fff;
+  font-size:1.05rem;
+}
+.xevai-navbar .nav-link{
+  color:var(--text-gray) !important;
+  font-weight:500;
+  font-size:.95rem;
+  padding:.5rem 1rem !important;
+  transition:color .2s ease;
+}
+.xevai-navbar .nav-link:hover{ color:var(--purple) !important; }
+.navbar-toggler{ border-color:var(--border); }
+
+.xevai-navbar .nav-item.dropdown{ position:relative; }
+.xevai-navbar .nav-dropdown-toggle{
+  background:none;
+  border:none;
+  color:var(--text-gray);
+  font-weight:500;
+  font-size:.95rem;
+  padding:.5rem 1rem;
+  display:flex;
+  align-items:center;
+  gap:.4rem;
+  cursor:pointer;
+  font-family:var(--font);
+  transition:color .2s ease;
+}
+.xevai-navbar .nav-dropdown-toggle:hover,
+.xevai-navbar .nav-item.dropdown.show > .nav-dropdown-toggle{ color:var(--purple); }
+.xevai-navbar .dropdown-icon{ font-size:.65rem; transition:transform .25s ease; }
+.xevai-navbar .nav-item.dropdown.show .dropdown-icon{ transform:rotate(180deg); }
+
+.xevai-navbar .dropdown-menu{
+  position:absolute;
+  top:calc(100% + 12px);
+  left:0;
+  min-width:250px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:12px;
+  box-shadow:0 18px 40px -18px rgba(20,22,43,.28);
+  padding:.5rem;
+  margin:0;
+  display:block;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px);
+  transition:opacity .22s ease, transform .22s ease, visibility .22s;
+}
+.xevai-navbar .nav-item.dropdown.show > .dropdown-menu{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+.xevai-navbar .dropdown-item{
+  display:block;
+  padding:.6rem .85rem;
+  border-radius:8px;
+  font-size:.9rem;
+  font-weight:500;
+  color:var(--text-gray);
+  white-space:nowrap;
+  transition:background .15s ease, color .15s ease;
+}
+.xevai-navbar .dropdown-item:hover{
+  background:var(--bg-soft);
+  color:var(--purple);
+}
+
+
+/* ============ HERO ============ */
+.hero{
+  padding:150px 0 60px;
+  background:var(--bg-soft);
+}
+.hero h1{
+  font-size:2.95rem;
+  line-height:1.15;
+  margin-bottom:1.4rem;
+}
+.hero-text{ font-size:1.05rem; max-width:570px; margin-bottom:1.9rem; }
+
+.tech-badges{
+  display:flex; flex-wrap:wrap; gap:.6rem;
+  margin-bottom:2.2rem;
+}
+.tech-badges span{
+  font-size:.82rem;
+  font-weight:600;
+  color:var(--text-dark);
+  background:#fff;
+  border:1px solid var(--border);
+  padding:.45rem .95rem;
+  border-radius:50px;
+}
+.hero-actions{ display:flex; gap:1rem; flex-wrap:wrap; }
+
+.hero-visual{
+  position:relative;
+  border-radius:22px;
+  background:linear-gradient(160deg, var(--teal-1) 0%, var(--teal-2) 100%);
+  min-height:440px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  box-shadow:0 30px 60px -25px rgba(10,110,119,.55);
+}
+.hero-visual::before{
+  content:"";
+  position:absolute; inset:0;
+  background:radial-gradient(circle at 30% 20%, rgba(255,255,255,.14) 0%, rgba(255,255,255,0) 55%);
+}
+
+/* Integration pipeline diagram */
+.integration-flow{
+  position:relative;
+  width:100%;
+  max-width:340px;
+  z-index:2;
+}
+.flow-node{
+  background:rgba(255,255,255,.97);
+  border-radius:14px;
+  padding:.9rem 1.1rem;
+  display:flex;
+  align-items:center;
+  gap:.7rem;
+  font-weight:700;
+  font-size:.88rem;
+  color:var(--text-dark);
+  box-shadow:0 14px 30px -14px rgba(0,0,0,.4);
+  margin-bottom:1.15rem;
+}
+.flow-node i{ color:var(--purple); font-size:1.1rem; }
+.flow-node.center{
+  background:var(--gradient);
+  color:#fff;
+  margin-left:1.6rem;
+}
+.flow-node.center i{ color:#fff; }
+.flow-connector{
+  width:2px;
+  height:22px;
+  background:rgba(255,255,255,.5);
+  margin:0 auto 1.15rem 2.4rem;
+}
+
+.orbit-card{
+  position:absolute;
+  background:#fff;
+  border-radius:12px;
+  padding:.65rem .95rem;
+  font-size:.78rem;
+  font-weight:700;
+  color:var(--text-dark);
+  display:flex; align-items:center; gap:.5rem;
+  box-shadow:0 16px 30px -14px rgba(0,0,0,.35);
+  z-index:3;
+}
+.orbit-card i{ color:var(--purple); }
+.orbit-1{ top:9%; right:5%; animation:float 4s ease-in-out infinite; }
+.orbit-2{ bottom:8%; left:2%; animation:float 4s ease-in-out infinite 1.2s; }
+@keyframes float{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-12px);} }
+
+/* Hero stats strip */
+.hero-stats{
+  border-top:1px solid #E6E1F5;
+  margin-top:2.6rem;
+  padding-top:2.2rem;
+}
+.hero-stat h3{
+  font-size:2rem;
+  margin-bottom:.2rem;
+  background:var(--gradient);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero-stat span{
+  font-size:.85rem;
+  font-weight:600;
+  color:var(--text-gray);
+}
+
+/* ============ SERVICE CARDS ============ */
+.service-card{
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:2.2rem 1.9rem;
+  height:100%;
+  margin-bottom:1.9rem;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.service-card:hover{
+  transform:translateY(-6px);
+  border-color:#DCC9FA;
+  box-shadow:0 26px 46px -26px rgba(124,58,237,.35);
+}
+.icon-chip{
+  width:52px; height:52px;
+  border-radius:12px;
+  background:var(--purple-soft);
+  color:var(--purple);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.35rem;
+  margin-bottom:1.3rem;
+}
+.service-card h3{ font-size:1.18rem; margin-bottom:.7rem; }
+.service-card p{ font-size:.92rem; margin-bottom:1.15rem; }
+.check-list li{
+  font-size:.87rem;
+  color:var(--text-dark);
+  font-weight:500;
+  padding:.32rem 0;
+  padding-left:1.6rem;
+  position:relative;
+}
+.check-list li i{
+  position:absolute; left:0; top:.42rem;
+  color:var(--purple);
+  font-size:1rem;
+}
+
+/* ============ WHY SECTION ============ */
+.why-heading{ font-size:2.2rem; margin-bottom:1.3rem; }
+.why-text{ font-size:1rem; margin-bottom:1.3rem; }
+.why-pill{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:1.1rem 1.4rem;
+  font-size:.92rem;
+  font-weight:600;
+  color:var(--text-dark);
+  margin-bottom:1rem;
+  box-shadow:0 8px 20px -16px rgba(20,22,43,.2);
+}
+
+/* ============ PROCESS ============ */
+.process-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:2.1rem 1.9rem;
+  height:100%;
+  margin-bottom:1.9rem;
+  position:relative;
+  overflow:hidden;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.process-card:hover{ transform:translateY(-6px); box-shadow:0 26px 46px -26px rgba(124,58,237,.3); }
+.process-num-badge{
+  width:52px; height:52px;
+  border-radius:12px;
+  background:var(--gradient);
+  color:#fff;
+  font-weight:800;
+  font-size:1.15rem;
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:1.2rem;
+  position:relative; z-index:2;
+}
+.process-num-watermark{
+  position:absolute;
+  top:-6px; right:14px;
+  font-size:5rem;
+  font-weight:800;
+  color:var(--purple-soft);
+  z-index:1;
+  line-height:1;
+  user-select:none;
+}
+.process-card h3{ font-size:1.15rem; margin-bottom:.7rem; position:relative; z-index:2;}
+.process-card p{ font-size:.9rem; margin-bottom:1.1rem; position:relative; z-index:2;}
+.process-card .check-list{ position:relative; z-index:2; }
+
+/* ============ COMPARISON STRIP ============ */
+.compare-card{
+  border-radius:var(--radius);
+  padding:2.2rem 2rem;
+  height:100%;
+}
+.compare-card.bad{ background:#fff; border:1px solid var(--border); }
+.compare-card.good{ background:var(--text-dark); }
+.compare-card h4{ font-size:1.1rem; margin-bottom:1.3rem; }
+.compare-card.good h4{ color:#fff; }
+.compare-card.good p{ color:rgba(255,255,255,.75); }
+.compare-card li{
+  font-size:.9rem;
+  padding:.5rem 0;
+  padding-left:1.7rem;
+  position:relative;
+}
+.compare-card.bad li{ color:var(--text-gray); }
+.compare-card.bad li i{ position:absolute; left:0; top:.6rem; color:#C6403F; }
+.compare-card.good li{ color:#fff; font-weight:500; }
+.compare-card.good li i{ position:absolute; left:0; top:.6rem; color:#B48CFF; }
+
+/* ============ FAQ ============ */
+.faq-wrap{ max-width:820px; margin:0 auto; }
+.faq-item{
+  border-bottom:1px solid var(--border);
+}
+.faq-question{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width:100%;
+  background:none;
+  border:none;
+  text-align:left;
+  padding:1.5rem 0;
+  font-size:1.05rem;
+  font-weight:700;
+  color:var(--text-dark);
+  cursor:pointer;
+}
+.faq-question i{
+  color:var(--purple);
+  font-size:1.2rem;
+  transition:transform .3s ease;
+  flex-shrink:0;
+  margin-left:1rem;
+}
+.faq-question[aria-expanded="true"] i{ transform:rotate(180deg); }
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .35s ease;
+}
+.faq-answer-inner{
+  padding:0 0 1.6rem;
+  font-size:.94rem;
+  color:var(--text-gray);
+  max-width:92%;
+}
+
+/* ============ CTA ============ */
+.cta-section{
+  background:var(--gradient);
+  padding:90px 0;
+  text-align:center;
+}
+.cta-section h2{ color:#fff; font-size:2.2rem; margin-bottom:1rem; }
+.cta-section p{ color:rgba(255,255,255,.9); max-width:620px; margin:0 auto 2.2rem; font-size:1.02rem; }
+.cta-actions{ display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; }
+
+/* ============ FOOTER ============ */
+.footer{ background:#fff; padding:70px 0 25px; border-top:1px solid var(--border); }
+.footer-desc{ font-size:.9rem; margin:1.1rem 0 1.4rem; max-width:340px; }
+.footer h5{ font-size:1rem; margin-bottom:1.3rem; }
+.footer-links li{ margin-bottom:.75rem; font-size:.9rem; }
+.footer-links a{ color:var(--text-gray); transition:color .2s ease; }
+.footer-links a:hover{ color:var(--purple); }
+.footer-contact li{
+  display:flex; align-items:center; gap:.7rem;
+  margin-bottom:1rem; font-size:.9rem; color:var(--text-gray);
+}
+.footer-contact .icon-chip-sm{
+  width:36px; height:36px;
+  border-radius:9px;
+  background:var(--purple-soft);
+  color:var(--purple);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1rem;
+  flex-shrink:0;
+}
+.footer-social{ display:flex; gap:.7rem; margin-top:.3rem; }
+.footer-social a{
+  width:38px; height:38px;
+  border-radius:50%;
+  border:1px solid var(--border);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--text-dark);
+  transition:all .2s ease;
+}
+.footer-social a:hover{ background:var(--gradient); border-color:transparent; color:#fff; }
+.footer hr{ border-color:var(--border); margin:2.5rem 0 1.5rem; }
+.footer-bottom{ font-size:.85rem; color:var(--text-gray); }
+.footer-legal a{ color:var(--text-gray); margin-left:1.4rem; font-size:.85rem; }
+.footer-legal a:hover{ color:var(--purple); }
+
+/* ============ SCROLL REVEAL ============ */
+[data-reveal]{ opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
+[data-reveal].in-view{ opacity:1; transform:translateY(0); }
+
+/* ============ BACK TO TOP ============ */
+.back-to-top{
+  position:fixed; bottom:26px; right:26px;
+  width:46px; height:46px; border-radius:50%;
+  background:var(--gradient); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.1rem;
+  box-shadow:0 12px 26px -10px rgba(139,62,242,.6);
+  opacity:0; visibility:hidden; transform:translateY(15px);
+  transition:all .3s ease; z-index:999;
+}
+.back-to-top.show{ opacity:1; visibility:visible; transform:translateY(0); }
+.back-to-top:hover{ color:#fff; transform:translateY(-4px); }
+
+/* =========================================================
+   RESPONSIVE — every breakpoint
+   ========================================================= */
+
+@media (max-width: 1199.98px){
+  .hero h1{ font-size:2.55rem; }
+  .section{ padding:88px 0; }
+}
+
+@media (max-width: 991.98px){
+  .hero{ padding:135px 0 55px; }
+  .hero h1{ font-size:2.2rem; }
+  .hero-visual{ min-height:340px; margin-top:2.5rem; }
+  .orbit-card{ font-size:.72rem; padding:.55rem .8rem; }
+  .section{ padding:75px 0; }
+  .section-heading{ margin-bottom:2.75rem; }
+  .xevai-navbar .navbar-collapse{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:1rem 1.3rem;
+    margin-top:1rem;
+    box-shadow:0 14px 30px -18px rgba(20,22,43,.25);
+  }
+  .xevai-navbar .nav-link{ padding:.6rem 0 !important; }
+
+  .xevai-navbar .nav-item.dropdown{ width:100%; }
+  .xevai-navbar .nav-dropdown-toggle{
+    width:100%;
+    justify-content:space-between;
+    padding:.6rem 0 !important;
+  }
+  .xevai-navbar .dropdown-menu{
+    position:static;
+    box-shadow:none;
+    border:none;
+    padding:.1rem 0 .3rem .9rem;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .28s ease, opacity .22s ease;
+  }
+  .xevai-navbar .nav-item.dropdown.show .dropdown-menu{ max-height:600px; }
+  .xevai-navbar .dropdown-item{ padding:.5rem 0; white-space:normal; }
+
+  .btn-nav-cta{ display:inline-block; margin-top:.5rem; }
+  .why-heading{ font-size:1.9rem; }
+  .hero-stats .col-4{ text-align:center; }
+  .hero-stat h3{ font-size:1.7rem; }
+}
+
+@media (max-width: 767.98px){
+  .hero{ padding:125px 0 50px; text-align:left; }
+  .hero h1{ font-size:1.95rem; }
+  .hero-text{ font-size:.98rem; }
+  .hero-actions .btn-gradient,
+  .hero-actions .btn-outline-purple{ width:100%; justify-content:center; }
+  .hero-actions{ flex-direction:column; }
+  .hero-visual{ min-height:300px; }
+  .orbit-card{ display:none; }
+  .integration-flow{ max-width:280px; }
+  .section{ padding:60px 0; }
+  .section-heading h2{ font-size:1.7rem; }
+  .cta-section h2{ font-size:1.7rem; }
+  .cta-actions{ flex-direction:column; align-items:stretch; }
+  .cta-actions .btn-white-solid,
+  .cta-actions .btn-outline-white{ justify-content:center; }
+  .process-num-watermark{ font-size:4rem; }
+  .compare-card{ margin-bottom:1.5rem; }
+  .footer{ text-align:left; }
+  .footer-bottom{ flex-direction:column; gap:.7rem; text-align:center; }
+  .footer-legal{ margin-top:.3rem; }
+  .footer-legal a{ margin:0 .7rem; }
+}
+
+@media (max-width: 575.98px){
+  .hero{ padding:118px 0 45px; }
+  .hero h1{ font-size:1.7rem; }
+  .brand{ font-size:1.05rem; }
+  .brand-icon{ width:33px; height:33px; font-size:.9rem; }
+  .service-card, .process-card{ padding:1.7rem 1.4rem; }
+  .icon-chip, .process-num-badge{ width:46px; height:46px; font-size:1.15rem; }
+  .faq-question{ font-size:.95rem; padding:1.2rem 0; }
+  .faq-answer-inner{ max-width:100%; font-size:.88rem; }
+  .why-pill{ padding:1rem 1.2rem; font-size:.87rem; }
+  .cta-section{ padding:65px 0; }
+  .back-to-top{ width:42px; height:42px; bottom:18px; right:18px; }
+  .hero-stats{ margin-top:2rem; padding-top:1.6rem; }
+  .hero-stat h3{ font-size:1.5rem; }
+  .hero-stat span{ font-size:.75rem; }
+}
+
+@media (max-width: 359.98px){
+  .hero h1{ font-size:1.5rem; }
+  .tech-badges span{ font-size:.75rem; padding:.4rem .8rem; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation:none !important; transition:none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg xevai-navbar fixed-top" id="mainNav">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <span class="brand-icon"><i class="bi bi-code-slash"></i></span>
+      XevAI Technologies
+    </a>
+    <button class="navbar-toggler" type="button" id="navToggle" aria-label="Toggle navigation">
+      <i class="bi bi-list" style="font-size:1.5rem;"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ml-auto align-items-lg-center">
+
+        <li class="nav-item dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+            Services <i class="bi bi-chevron-down dropdown-icon"></i>
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="AI-Chatbot-Development.html">AI Chatbot Development</a>
+            <a class="dropdown-item" href="AI-Agent-Development.html">AI Agent Development</a>
+            <a class="dropdown-item" href="ChatGPT-Integration.html">ChatGPT Integration</a>
+            <a class="dropdown-item" href="full-stack-web-development.html">Custom Web Development</a>
+            <a class="dropdown-item" href="Mobile-app.html">Mobile App Development</a>
+            <a class="dropdown-item" href="custom-software-development.html">Custom Software Development</a>
+            <a class="dropdown-item" href="ui-ux-development.html">UI/UX Development</a>
+            <a class="dropdown-item" href="cloud-devops.html">Cloud &amp; DevOps</a>
+            <a class="dropdown-item" href="enterprise-software.html">Enterprise Software Development</a>
+          </div>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="#!">Salesforce</a></li>
+
+        <li class="nav-item dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+            Industries <i class="bi bi-chevron-down dropdown-icon"></i>
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#!">Healthcare</a>
+            <a class="dropdown-item" href="#!">FinTech</a>
+            <a class="dropdown-item" href="#!">Real Estate</a>
+            <a class="dropdown-item" href="#!">E-Commerce</a>
+            <a class="dropdown-item" href="#!">Education</a>
+            <a class="dropdown-item" href="#!">Logistics</a>
+            <a class="dropdown-item" href="#!">Manufacturing</a>
+            <a class="dropdown-item" href="#!">Hospitality</a>
+            <a class="dropdown-item" href="#!">Enterprise</a>
+          </div>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="#!">Portfolio</a></li>
+
+        <li class="nav-item dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+            Company <i class="bi bi-chevron-down dropdown-icon"></i>
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#!">About Us</a>
+            <a class="dropdown-item" href="#!">Why XevAI</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+            Resource <i class="bi bi-chevron-down dropdown-icon"></i>
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#!">Blogs</a>
+            <a class="dropdown-item" href="#!">Careers</a>
+          </div>
+        </li>
+
+        <li class="nav-item ml-lg-3">
+          <a href="#contact" class="btn-nav-cta">Contact Us</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6" data-reveal>
+        <span class="eyebrow-tag">ChatGPT Integration Agency</span>
+        <h1>Seamless ChatGPT Integration for Your Product &amp; Business Systems</h1>
+        <p class="hero-text">
+          XevAI integrates ChatGPT and the OpenAI API directly into websites, apps, CRMs, and internal
+          tools for businesses worldwide. From a simple GPT-4o chat widget to a fully custom Assistants
+          API deployment with function calling and your own data, we handle the architecture, prompt
+          engineering, security, and cost control — so ChatGPT works the way your product actually needs it to.
+        </p>
+
+        <div class="tech-badges">
+          <span>GPT-4o</span>
+          <span>Assistants API</span>
+          <span>Function Calling</span>
+          <span>Azure OpenAI</span>
+          <span>Embeddings API</span>
+          <span>Custom GPTs</span>
+          <span>Whisper API</span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#" class="btn-gradient"><i class="bi bi-calendar-check"></i> Book a Consultation</a>
+          <a href="#" class="btn-outline-purple">Contact Us</a>
+        </div>
+
+        <div class="row hero-stats">
+          <div class="col-4">
+            <div class="hero-stat"><h3>3x</h3><span>Faster feature delivery</span></div>
+          </div>
+          <div class="col-4">
+            <div class="hero-stat"><h3>60%</h3><span>Lower support costs</span></div>
+          </div>
+          <div class="col-4">
+            <div class="hero-stat"><h3>99.9%</h3><span>Monitored API uptime</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6" data-reveal>
+        <div class="hero-visual">
+          <div class="orbit-card orbit-1"><i class="bi bi-lightning-charge-fill"></i> Real-Time Responses</div>
+          <div class="orbit-card orbit-2"><i class="bi bi-shield-lock-fill"></i> Enterprise-Grade Security</div>
+
+          <div class="integration-flow">
+            <div class="flow-node"><i class="bi bi-window-stack"></i> Your App or Website</div>
+            <div class="flow-connector"></div>
+            <div class="flow-node center"><i class="bi bi-braces-asterisk"></i> ChatGPT / OpenAI API</div>
+            <div class="flow-connector"></div>
+            <div class="flow-node"><i class="bi bi-reply-fill"></i> Smart, Context-Aware Reply</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= SERVICES ================= -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-heading text-center" data-reveal>
+      <span class="eyebrow-tag">What We Build</span>
+      <h2>ChatGPT Integration Services</h2>
+      <p>End-to-end ChatGPT integration — from architecture and prompt design to production deployment</p>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 col-lg-4" data-reveal>
+        <div class="service-card">
+          <div class="icon-chip"><i class="bi bi-window-stack"></i></div>
+          <h3>Website &amp; App Integration</h3>
+          <p>We embed ChatGPT directly into your website or product as a chat widget, in-app assistant, or search bar that understands your users and your content.</p>
+          <ul class="check-list">
+            <li><i class="bi bi-check-circle-fill"></i>Custom Chat Widget Build</li>
+            <li><i class="bi bi-check-circle-fill"></i>In-App AI Assistant</li>
+            <li><i class="bi bi-check-circle-fill"></i>Streaming Responses</li>
+            <li><i class="bi bi-check-circle-fill"></i>Brand-Matched UI</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-reveal>
+        <div class="service-card">
+          <div class="icon-chip"><i class="bi bi-stars"></i></div>
+          <h3>Custom GPTs &amp; Assistants API</h3>
+          <p>We build Custom GPTs and OpenAI Assistants configured with your instructions, files, and tools for internal teams or customer-facing use cases.</p>
+          <ul class="check-list">
+            <li><i class="bi bi-check-circle-fill"></i>Custom GPT Configuration</li>
+            <li><i class="bi bi-check-circle-fill"></i>Assistants API Threads &amp; Runs</li>
+            <li><i class="bi bi-check-circle-fill"></i>File Search &amp; Code Interpreter</li>
+            <li><i class="bi bi-check-circle-fill"></i>Persona &amp; Instruction Design</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-reveal>
+        <div class="service-card">
+          <div class="icon-chip"><i class="bi bi-building"></i></div>
+          <h3>Enterprise ChatGPT Deployment</h3>
+          <p>For larger organizations we deploy via Azure OpenAI Service or ChatGPT Enterprise, with SSO, data residency, and compliance requirements handled properly.</p>
+          <ul class="check-list">
+            <li><i class="bi bi-check-circle-fill"></i>Azure OpenAI Service Setup</li>
+            <li><i class="bi bi-check-circle-fill"></i>SSO &amp; Access Control</li>
+            <li><i class="bi bi-check-circle-fill"></i>Data Residency &amp; Compliance</li>
+            <li><i class="bi bi-check-circle-fill"></i>Team Rollout &amp; Training</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-reveal>
+        <div class="service-card">
+          <div class="icon-chip"><i class="bi bi-search"></i></div>
+          <h3>Embeddings &amp; RAG-Powered Search</h3>
+          <p>We connect ChatGPT to your own documents, product data, and knowledge base using embeddings, so answers are grounded in your business — not guesses.</p>
+          <ul class="check-list">
+            <li><i class="bi bi-check-circle-fill"></i>Vector Database Setup</li>
+            <li><i class="bi bi-check-circle-fill"></i>Document &amp; Data Ingestion</li>
+            <li><i class="bi bi-check-circle-fill"></i>Retrieval-Augmented Generation</li>
+            <li><i class="bi bi-check-circle-fill"></i>Source Citations in Answers</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-reveal>
+        <div class="service-card">
+          <div class="icon-chip"><i class="bi bi-plug"></i></div>
+          <h3>CRM &amp; Internal Tool Integration</h3>
+          <p>We connect ChatGPT to HubSpot, Salesforce, Zendesk, Notion, and internal APIs with function calling, so it can pull data and trigger actions directly.</p>
+          <ul class="check-list">
+            <li><i class="bi bi-check-circle-fill"></i>Function Calling Setup</li>
+            <li><i class="bi bi-check-circle-fill"></i>CRM &amp; Helpdesk Sync</li>
+            <li><i class="bi bi-check-circle-fill"></i>Internal API Orchestration</li>
+            <li><i class="bi bi-check-circle-fill"></i>Webhook-Based Automation</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-reveal>
+        <div class="service-card">
+          <div class="icon-chip"><i class="bi bi-graph-up-arrow"></i></div>
+          <h3>API Migration &amp; Cost Optimization</h3>
+          <p>Already using ChatGPT but costs or latency are climbing? We audit your prompts, model choice, and caching strategy to cut spend without cutting quality.</p>
+          <ul class="check-list">
+            <li><i class="bi bi-check-circle-fill"></i>Prompt &amp; Token Audit</li>
+            <li><i class="bi bi-check-circle-fill"></i>Model Selection &amp; Upgrades</li>
+            <li><i class="bi bi-check-circle-fill"></i>Response Caching Strategy</li>
+            <li><i class="bi bi-check-circle-fill"></i>Usage &amp; Cost Monitoring</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY IT MATTERS ================= -->
+<section class="section section-soft" id="why">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6" data-reveal>
+        <span class="eyebrow-tag">Why It Matters</span>
+        <h2 class="why-heading">Why Professional ChatGPT Integration Matters</h2>
+        <p class="why-text">
+          Calling the OpenAI API is easy. Building a ChatGPT integration that's fast, accurate, secure,
+          and affordable at real usage volume is a different problem entirely. Prompt design, token
+          costs, rate limits, data privacy, and fallback handling all compound as usage grows — and
+          most teams find that out after launch, not before.
+        </p>
+        <p class="why-text">
+          At XevAI we integrate ChatGPT the way top-tier AI agencies do: with proper architecture,
+          monitored costs, and security reviewed from day one — so your integration holds up in
+          production, not just in a demo.
+        </p>
+      </div>
+      <div class="col-lg-6" data-reveal>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="why-pill"><i class="bi bi-rocket-takeoff mr-2" style="color:var(--purple);"></i>Ship AI features in weeks, not months</div>
+            <div class="why-pill"><i class="bi bi-cash-coin mr-2" style="color:var(--purple);"></i>Reduce token costs with smart caching</div>
+            <div class="why-pill"><i class="bi bi-shield-lock mr-2" style="color:var(--purple);"></i>Keep customer data secure and compliant</div>
+            <div class="why-pill"><i class="bi bi-badge-hd mr-2" style="color:var(--purple);"></i>Access GPT-4o's multimodal capabilities</div>
+          </div>
+          <div class="col-sm-6">
+            <div class="why-pill"><i class="bi bi-plug mr-2" style="color:var(--purple);"></i>Integrate directly into your existing stack</div>
+            <div class="why-pill"><i class="bi bi-arrows-angle-expand mr-2" style="color:var(--purple);"></i>Scale usage without managing infrastructure</div>
+            <div class="why-pill"><i class="bi bi-lightning-charge mr-2" style="color:var(--purple);"></i>Add real-time function calling to your app</div>
+            <div class="why-pill"><i class="bi bi-arrow-repeat mr-2" style="color:var(--purple);"></i>Stay current as OpenAI ships new models</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMPARISON ================= -->
+<section class="section" id="compare">
+  <div class="container">
+    <div class="section-heading text-center" data-reveal>
+      <span class="eyebrow-tag">The Difference</span>
+      <h2>DIY API Call vs. Professional Integration</h2>
+      <p>Why the first working demo and a production-ready integration are two very different things</p>
+    </div>
+    <div class="row">
+      <div class="col-md-6" data-reveal>
+        <div class="compare-card bad">
+          <h4>A Basic API Call</h4>
+          <p>Works in a demo, breaks under real usage</p>
+          <ul>
+            <li><i class="bi bi-x-circle-fill"></i>No cost or rate-limit controls</li>
+            <li><i class="bi bi-x-circle-fill"></i>Hallucinated answers on real data</li>
+            <li><i class="bi bi-x-circle-fill"></i>No fallback when the API fails</li>
+            <li><i class="bi bi-x-circle-fill"></i>Sensitive data sent without review</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6" data-reveal>
+        <div class="compare-card good">
+          <h4>An XevAI Integration</h4>
+          <p>Architected to hold up in production</p>
+          <ul>
+            <li><i class="bi bi-check-circle-fill"></i>Cost, caching, and rate-limit strategy</li>
+            <li><i class="bi bi-check-circle-fill"></i>Grounded answers via retrieval (RAG)</li>
+            <li><i class="bi bi-check-circle-fill"></i>Graceful fallback and error handling</li>
+            <li><i class="bi bi-check-circle-fill"></i>Data handling reviewed for security</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="section section-soft" id="process">
+  <div class="container">
+    <div class="section-heading text-center" data-reveal>
+      <span class="eyebrow-tag">How We Work</span>
+      <h2>Our ChatGPT Integration Process</h2>
+      <p>A structured approach to delivering ChatGPT integrations that hold up at real scale</p>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6" data-reveal>
+        <div class="process-card">
+          <span class="process-num-watermark">01</span>
+          <div class="process-num-badge">01</div>
+          <h3>Discovery &amp; Use-Case Scoping</h3>
+          <p>We identify exactly where ChatGPT adds value in your product or workflow, and scope the data, tools, and model it will need access to.</p>
+          <ul class="check-list">
+            <li><i class="bi bi-check-circle-fill"></i>Use-case &amp; workflow audit</li>
+            <li><i class="bi bi-check-circle-fill"></i>Model &amp; API selection (GPT-4o, Assistants)</li>
+            <li><i class="bi bi-check-circle-fill"></i>Data &amp; tool access scoping</li>
+            <li><i class="bi bi-check-circle-fill"></i>Success metrics definition</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6" data-reveal>
+        <div class="process-card">
+          <span class="process-num-watermark">02</span>
+          <div class="process-num-badge">02</div>
+          <h3>API Architecture &amp; Prompt Engineering</h3>
+          <p>We design the system architecture and craft, test, and refine prompts against real examples from your business, not generic samples.</p>
+          <ul class="check-list">
+            <li><i class="bi bi-check-circle-fill"></i>System &amp; API architecture design</li>
+            <li><i class="bi bi-check-circle-fill"></i>Prompt engineering &amp; iteration</li>
+            <li><i class="bi bi-check-circle-fill"></i>Function calling &amp; tool schemas</li>
+            <li><i class="bi bi-check-circle-fill"></i>Embeddings &amp; retrieval setup</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6" data-reveal>
+        <div class="process-card">
+          <span class="process-num-watermark">03</span>
+          <div class="process-num-badge">03</div>
+          <h3>Integration &amp; Testing</h3>
+          <p>We build the integration into your app or systems and test it against real edge cases, load, and failure scenarios before launch.</p>
+          <ul class="check-list">
+            <li><i class="bi bi-check-circle-fill"></i>Frontend &amp; backend integration</li>
+            <li><i class="bi bi-check-circle-fill"></i>Streaming &amp; latency optimization</li>
+            <li><i class="bi bi-check-circle-fill"></i>Edge case &amp; failure testing</li>
+            <li><i class="bi bi-check-circle-fill"></i>Security &amp; data handling review</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6" data-reveal>
+        <div class="process-card">
+          <span class="process-num-watermark">04</span>
+          <div class="process-num-badge">04</div>
+          <h3>Deployment, Cost Monitoring &amp; Optimization</h3>
+          <p>We deploy to production with full usage and cost monitoring in place, then keep tuning prompts and models as your usage grows.</p>
+          <ul class="check-list">
+            <li><i class="bi bi-check-circle-fill"></i>Production deployment</li>
+            <li><i class="bi bi-check-circle-fill"></i>Token usage &amp; cost dashboards</li>
+            <li><i class="bi bi-check-circle-fill"></i>Response quality monitoring</li>
+            <li><i class="bi bi-check-circle-fill"></i>Ongoing prompt optimization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-heading text-center" data-reveal>
+      <span class="eyebrow-tag">Questions</span>
+      <h2>ChatGPT Integration Questions Answered</h2>
+    </div>
+
+    <div class="faq-wrap" data-reveal>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What's the difference between using ChatGPT directly and a custom integration?
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">ChatGPT the consumer app only knows what you type into it. A custom integration connects the underlying OpenAI API to your own data, tools, and systems — so it can answer using your product documentation, pull live data from your database, or trigger an action in your CRM, all inside your own app's interface.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Can you integrate ChatGPT with our existing CRM, helpdesk, or app?
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes. We regularly integrate ChatGPT with platforms like HubSpot, Salesforce, Zendesk, Intercom, and custom internal tools using the OpenAI API's function calling, so it can retrieve and update real data rather than just chatting in isolation.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Do you use GPT-4o, or can we choose a specific model?
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">We typically recommend GPT-4o for its speed, cost, and multimodal capabilities, but the right model depends on your use case — some workflows are better served by a smaller, faster model, or by Azure OpenAI for enterprise compliance needs. We help you choose based on accuracy, latency, and cost trade-offs.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How do you control OpenAI API costs at scale?
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">We reduce costs through prompt optimization, response caching for repeated queries, choosing the right model for each task, and usage monitoring with alerts before spend spikes. Most integrations we optimize see a significant drop in token costs without any drop in answer quality.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Is our data secure when using the OpenAI API?
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes. We follow OpenAI's data usage policies, apply data minimization so only necessary information is sent to the API, and for enterprise clients we can deploy through Azure OpenAI Service for additional data residency and compliance controls where required.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <h2>Ready to Integrate ChatGPT Into Your Product?</h2>
+    <p>Let's discuss how a professional ChatGPT integration can save your team time and delight your customers — for clients anywhere in the world.</p>
+    <div class="cta-actions">
+      <a href="#" class="btn-white-solid"><i class="bi bi-calendar-check"></i> Schedule an AI Assessment</a>
+      <a href="#" class="btn-outline-white">Get Your Integration Quote <i class="bi bi-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mb-4 mb-lg-0">
+        <a class="brand" href="index.html">
+          <span class="brand-icon"><i class="bi bi-code-slash"></i></span>
+          XevAI Technologies
+        </a>
+        <p class="footer-desc">AI agency and software development company specializing in full stack web development, enterprise software, cloud infrastructure, and AI automation for startups and enterprises worldwide.</p>
+        <div class="footer-social">
+          <a href="#"><i class="bi bi-linkedin"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-twitter-x"></i></a>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-6 mb-4 mb-lg-0">
+        <h5>Services</h5>
+        <ul class="footer-links">
+          <li><a href="AI-Chatbot-Development.html">AI Chatbot Development</a></li>
+          <li><a href="AI-Agent-Development.html">AI Agent Development</a></li>
+          <li><a href="ChatGPT-Integration.html">ChatGPT Integration</a></li>
+          <li><a href="#!">Custom Web Development</a></li>
+          <li><a href="#!">Mobile App Development</a></li>
+          <li><a href="#!">Custom Software Development</a></li>
+          <li><a href="#!">UI/UX Development</a></li>
+          <li><a href="#!">Cloud &amp; DevOps</a></li>
+          <li><a href="#!">Enterprise Software Development</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-2 col-6 mb-4 mb-lg-0">
+        <h5>Company</h5>
+        <ul class="footer-links">
+          <li><a href="#!">About Us</a></li>
+          <li><a href="#!">Why XevAI</a></li>
+          <li><a href="#!">Blogs</a></li>
+          <li><a href="#!">Careers</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3">
+        <h5>Get In Touch</h5>
+        <ul class="footer-contact">
+          <li><span class="icon-chip-sm"><i class="bi bi-envelope"></i></span> hello@xevai.com</li>
+          <li><span class="icon-chip-sm"><i class="bi bi-telephone"></i></span> +1 (437) 239-2448</li>
+          <li><span class="icon-chip-sm"><i class="bi bi-geo-alt"></i></span> Remote &amp; Worldwide Clients</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr>
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center footer-bottom">
+      <span>© 2026 XevAI Technologies. All rights reserved.</span>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms and Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="#top" class="back-to-top" id="backToTop"><i class="bi bi-arrow-up"></i></a>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* ---- Navbar shadow on scroll + back to top button ---- */
+  var nav = document.getElementById('mainNav');
+  var backToTop = document.getElementById('backToTop');
+
+  function onScroll(){
+    if (window.scrollY > 30) { nav.classList.add('scrolled'); }
+    else { nav.classList.remove('scrolled'); }
+
+    if (window.scrollY > 500) { backToTop.classList.add('show'); }
+    else { backToTop.classList.remove('show'); }
+  }
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+
+  /* ---- Mobile nav toggle (no bootstrap.js dependency) ---- */
+  var toggle = document.getElementById('navToggle');
+  var menu = document.getElementById('navMenu');
+  toggle.addEventListener('click', function(){
+    menu.classList.toggle('show');
+  });
+  menu.querySelectorAll('.nav-link, .btn-nav-cta').forEach(function(link){
+    link.addEventListener('click', function(){
+      menu.classList.remove('show');
+    });
+  });
+
+  /* ---- Dropdown menus (Services / Industries / Company / Resource) ---- */
+  var dropdowns = document.querySelectorAll('.xevai-navbar .nav-item.dropdown');
+  dropdowns.forEach(function(dd){
+    var toggleBtn = dd.querySelector('.nav-dropdown-toggle');
+    toggleBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var isOpen = dd.classList.contains('show');
+      dropdowns.forEach(function(other){ other.classList.remove('show'); });
+      if(!isOpen){ dd.classList.add('show'); }
+    });
+  });
+  document.addEventListener('click', function(e){
+    dropdowns.forEach(function(dd){
+      if(!dd.contains(e.target)){ dd.classList.remove('show'); }
+    });
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      dropdowns.forEach(function(dd){ dd.classList.remove('show'); });
+    }
+  });
+  menu.querySelectorAll('.dropdown-item').forEach(function(link){
+    link.addEventListener('click', function(){
+      menu.classList.remove('show');
+      dropdowns.forEach(function(dd){ dd.classList.remove('show'); });
+    });
+  });
+
+
+  /* ---- FAQ accordion (vanilla JS) ---- */
+  document.querySelectorAll('.faq-question').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var answer = btn.nextElementSibling;
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+
+      document.querySelectorAll('.faq-question').forEach(function(other){
+        if (other !== btn) {
+          other.setAttribute('aria-expanded', 'false');
+          other.nextElementSibling.style.maxHeight = null;
+        }
+      });
+
+      if (expanded) {
+        btn.setAttribute('aria-expanded', 'false');
+        answer.style.maxHeight = null;
+      } else {
+        btn.setAttribute('aria-expanded', 'true');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* ---- Scroll reveal ---- */
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(function (el) { observer.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('in-view'); });
+  }
+
+});
+</script>
+</body>
+</html>

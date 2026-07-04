@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Service Cards - Bootstrap 4</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Bootstrap 4 CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
+<!-- Font Awesome 5 (icons) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<style>
+  /* ===== GLOBAL RESETS ===== */
+  *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
+
+  html, body{
+    width:100%;
+    overflow-x:hidden;
+  }
+
+  body{
+    background:#f7f7f9;
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color:#6b7280;
+  }
+
+  /* ===== CSS VARIABLES ===== */
+  :root{
+    --purple-600:#7c3aed;
+    --purple-500:#8b5cf6;
+    --badge-bg:#f3e8ff;
+    --heading-color:#111827;
+    --text-color:#6b7280;
+    --chip-bg:#f3f4f6;
+    --chip-text:#374151;
+    --card-border:#eceef1;
+  }
+
+  /* ===== CONTAINER SERVICES WRAP ===== */
+  .container.services-wrap{
+    width:100%;
+    max-width:1140px;
+    margin:0 auto;
+    padding:60px 15px;
+    display:block;
+    box-sizing:border-box;
+    overflow:visible;
+  }
+
+  /* ===== ROW LAYOUT ===== */
+  .row{
+    display:flex;
+    flex-wrap:wrap;
+    margin-left:-15px;
+    margin-right:-15px;
+    gap:0;
+    align-items:stretch;
+  }
+
+  /* ===== COLUMN - col-lg-3 col-md-6 mb-4 ===== */
+  .col-lg-3.col-md-6.mb-4{
+    padding-left:15px;
+    padding-right:15px;
+    margin-bottom:24px;
+    flex-basis:25%;
+    flex-grow:0;
+    flex-shrink:0;
+    min-width:0;
+    display:flex;
+    flex-direction:column;
+  }
+
+  @media (max-width:991px){
+    .col-lg-3.col-md-6.mb-4{
+      flex-basis:50%;
+      flex-grow:0;
+      flex-shrink:0;
+    }
+  }
+
+  @media (max-width:767px){
+    .col-lg-3.col-md-6.mb-4{
+      flex-basis:100%;
+      padding-left:12px;
+      padding-right:12px;
+      margin-bottom:20px;
+    }
+  }
+
+  /* ===== SERVICE CARD ===== */
+  .service-card{
+    background:#ffffff;
+    border:1px solid #eceef1;
+    border-radius:16px;
+    padding:32px 28px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    align-items:stretch;
+    height:100%;
+    min-height:350px;
+    overflow:hidden;
+    word-wrap:break-word;
+    overflow-wrap:break-word;
+    transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+    box-shadow:0 1px 3px rgba(0,0,0,0.05);
+  }
+
+  .service-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(124,58,237,0.15);
+    border-color:#d8bfd8;
+  }
+
+  /* ===== CARD TOP (Flex container for icon and badge) ===== */
+  .card-top{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:24px;
+    width:100%;
+    gap:16px;
+    flex-wrap:nowrap;
+  }
+
+  /* ===== ICON BOX ===== */
+  .icon-box{
+    width:56px;
+    height:56px;
+    min-width:56px;
+    flex-shrink:0;
+    border-radius:14px;
+    background:linear-gradient(135deg,#8b5cf6,#7c3aed);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#ffffff;
+    font-size:24px;
+    box-shadow:0 4px 12px rgba(124,58,237,0.2);
+  }
+
+  /* ===== BADGE PILL CUSTOM ===== */
+  .badge-pill-custom{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background:#f3e8ff;
+    color:#7c3aed;
+    font-size:13px;
+    font-weight:600;
+    padding:6px 14px;
+    border-radius:999px;
+    white-space:nowrap;
+    flex-shrink:0;
+    border:1px solid transparent;
+  }
+
+  /* ===== SERVICE CARD H3 ===== */
+  .service-card h3{
+    font-size:24px;
+    font-weight:700;
+    color:#111827;
+    margin:0 0 16px 0;
+    line-height:1.2;
+    word-break:break-word;
+    hyphens:auto;
+  }
+
+  /* ===== SERVICE CARD P ===== */
+  .service-card p{
+    font-size:15px;
+    color:#6b7280;
+    line-height:1.7;
+    margin:0 0 24px 0;
+    word-wrap:break-word;
+    overflow-wrap:break-word;
+    hyphens:auto;
+  }
+
+  /* ===== FEATURE LIST ===== */
+  .feature-list{
+    list-style:none;
+    padding:0;
+    margin:0 0 24px 0;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+
+  /* ===== FEATURE LIST LI ===== */
+  .feature-list li{
+    background:#f3f4f6;
+    color:#374151;
+    font-size:14.5px;
+    font-weight:500;
+    padding:12px 16px;
+    border-radius:10px;
+    margin-bottom:8px;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    gap:12px;
+    word-wrap:break-word;
+    overflow-wrap:break-word;
+    transition:background 0.2s ease;
+  }
+
+  .feature-list li:hover{
+    background:#e5e7eb;
+  }
+
+  .feature-list li:last-child{
+    margin-bottom:0;
+  }
+
+  /* ===== FEATURE LIST LI I (icon) ===== */
+  .feature-list li i{
+    color:#7c3aed;
+    font-size:13px;
+    flex-shrink:0;
+    min-width:16px;
+    text-align:center;
+  }
+
+  /* ===== CARD LINK ===== */
+  .card-link{
+    margin-top:auto;
+    padding-top:8px;
+    color:#7c3aed;
+    font-weight:700;
+    font-size:15px;
+    text-decoration:none;
+    display:inline-flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:flex-start;
+    gap:8px;
+    transition:color 0.2s ease;
+    word-wrap:break-word;
+    overflow-wrap:break-word;
+  }
+
+  .card-link:hover{
+    color:#8b5cf6;
+  }
+
+  /* ===== CARD LINK I (arrow icon) ===== */
+  .card-link i{
+    font-size:13px;
+    flex-shrink:0;
+    transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  .card-link:hover i{
+    transform:translateX(6px);
+  }
+
+  /* ===== RESPONSIVE BREAKPOINT (max-width: 991px) ===== */
+  @media (max-width:991px){
+    .container.services-wrap{
+      padding:50px 15px;
+    }
+  }
+
+  /* ===== RESPONSIVE BREAKPOINT (max-width: 767px) ===== */
+  @media (max-width:767px){
+    .container.services-wrap{
+      padding:40px 12px;
+      max-width:100%;
+    }
+
+    .row{
+      margin-left:-12px;
+      margin-right:-12px;
+    }
+
+    .col-lg-3.col-md-6.mb-4{
+      padding-left:12px;
+      padding-right:12px;
+    }
+
+    .service-card{
+      padding:24px 20px;
+      min-height:auto;
+    }
+
+    .service-card h3{
+      font-size:20px;
+      margin-bottom:12px;
+    }
+
+    .service-card p{
+      font-size:14px;
+      line-height:1.6;
+      margin-bottom:16px;
+    }
+
+    .card-top{
+      margin-bottom:20px;
+      gap:12px;
+    }
+
+    .icon-box{
+      width:48px;
+      height:48px;
+      min-width:48px;
+      font-size:20px;
+    }
+
+    .badge-pill-custom{
+      font-size:12px;
+      padding:5px 12px;
+    }
+
+    .feature-list li{
+      font-size:13px;
+      padding:10px 14px;
+      margin-bottom:6px;
+    }
+
+    .feature-list li i{
+      font-size:12px;
+      min-width:14px;
+    }
+
+    .card-link{
+      font-size:14px;
+    }
+
+    .card-link i{
+      font-size:12px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container services-wrap">
+  <div class="row">
+
+    <!-- Card 1: Full Stack Website Development -->
+    <div class="col-lg-3 col-md-6 mb-4">
+      <div class="service-card">
+        <div class="card-top">
+          <div class="icon-box"><i class="fas fa-layer-group"></i></div>
+          <span class="badge-pill-custom">Engineering</span>
+        </div>
+        <h3>Full Stack Website Development</h3>
+        <p>We build robust, production ready websites and web applications from interactive frontends to scalable backend APIs and cloud infrastructure. Our senior backend developers in Toronto deliver complete website development solutions using Python, Django, Node.js, React, Next.js, PostgreSQL, AWS, and Google Cloud with automated testing, CI/CD, and security built in from day one.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i>Frontend and Backend Development</li>
+          <li><i class="fas fa-check-circle"></i>Cloud Infrastructure and DevOps</li>
+          <li><i class="fas fa-check-circle"></i>API Development and Integration</li>
+          <li><i class="fas fa-check-circle"></i>Database Architecture and Optimization</li>
+        </ul>
+        <a href="#" class="card-link">Explore Full Stack Development Services <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <!-- Card 2: Custom Mobile App Development -->
+    <div class="col-lg-3 col-md-6 mb-4">
+      <div class="service-card">
+        <div class="card-top">
+          <div class="icon-box"><i class="fas fa-mobile-alt"></i></div>
+          <span class="badge-pill-custom">Mobile</span>
+        </div>
+        <h3>Custom Mobile App Development</h3>
+        <p>As a trusted mobile app development agency in Toronto, we design and develop high performance mobile applications for iOS and Android that users love. Using React Native, Flutter, Swift, and Kotlin, we handle everything from UX research and prototyping to App Store and Google Play Store submission, push notifications, and post launch analytics.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i>iOS and Android Apps</li>
+          <li><i class="fas fa-check-circle"></i>React Native and Flutter</li>
+          <li><i class="fas fa-check-circle"></i>App Store and Play Store Launch</li>
+          <li><i class="fas fa-check-circle"></i>App Store Optimization</li>
+        </ul>
+        <a href="#" class="card-link">Discover Mobile App Solutions <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <!-- Card 3: AI Chatbots, Call Bots & Automation -->
+    <div class="col-lg-3 col-md-6 mb-4">
+      <div class="service-card">
+        <div class="card-top">
+          <div class="icon-box"><i class="fas fa-brain"></i></div>
+          <span class="badge-pill-custom">AI</span>
+        </div>
+        <h3>AI Chatbots, Call Bots &amp; Automation</h3>
+        <p>Transform your business operations with our AI automation agency services. We build AI chatbots for websites, AI call bots to automate customer support, n8n and Make workflow pipelines, and use AI to automate lead qualification. Our AI consulting team specializes in OpenAI integration, Claude, LangChain, and TensorFlow to eliminate repetitive tasks and automate repetitive work.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i>AI Chatbots and Call Bots</li>
+          <li><i class="fas fa-check-circle"></i>Automate Customer Support</li>
+          <li><i class="fas fa-check-circle"></i>AI Lead Qualification</li>
+          <li><i class="fas fa-check-circle"></i>OpenAI and LLM Integration</li>
+        </ul>
+        <a href="#" class="card-link">See AI Automation in Action <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <!-- Card 4: AI SEO Agency Toronto -->
+    <div class="col-lg-3 col-md-6 mb-4">
+      <div class="service-card">
+        <div class="card-top">
+          <div class="icon-box"><i class="fas fa-search"></i></div>
+          <span class="badge-pill-custom">SEO</span>
+        </div>
+        <h3>AI SEO Agency Toronto</h3>
+        <p>Dominate search rankings with our AI SEO agency services, local GEO targeting, generative engine optimization (GEO), and LLM optimization (LLMO). We use artificial intelligence to improve Google rankings, optimize your content for Google AI Overviews, ChatGPT, and Perplexity, and implement local SEO strategies to maximize qualified organic traffic for small businesses and enterprises.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i>AI Powered SEO Strategy</li>
+          <li><i class="fas fa-check-circle"></i>Generative Engine Optimization (GEO)</li>
+          <li><i class="fas fa-check-circle"></i>LLM Optimization (LLMO)</li>
+          <li><i class="fas fa-check-circle"></i>Voice Search and AI Overviews</li>
+        </ul>
+        <a href="#" class="card-link">View SEO &amp; Ranking Services <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

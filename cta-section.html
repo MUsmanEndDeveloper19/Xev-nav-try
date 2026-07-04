@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CTA Section</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"/>
+  <style>
+    .cta-section {
+      background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 50%, #5b21b6 100%);
+      padding: 90px 20px;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      color: #ffffff;
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    .cta-section p {
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 1rem;
+      margin-bottom: 40px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+
+    .cta-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .btn-schedule {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #ffffff;
+      color: #1a1a2e;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 14px 28px;
+      border-radius: 8px;
+      border: none;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-schedule:hover {
+      background: #f0eeff;
+      color: #1a1a2e;
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    .btn-schedule svg {
+      flex-shrink: 0;
+    }
+
+    .btn-quote {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: gap 0.2s ease;
+    }
+
+    .btn-quote:hover {
+      color: #ffffff;
+      text-decoration: none;
+      gap: 12px;
+    }
+
+    @media (max-width: 576px) {
+      .cta-section h2 {
+        font-size: 1.6rem;
+      }
+
+      .cta-section p {
+        font-size: 0.92rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Let's Build Your Next Innovation Together</h2>
+      <p>Schedule a free consultation to discuss your project requirements and get expert guidance on the best technical approach.</p>
+      <div class="cta-buttons">
+
+        <a href="#" class="btn-schedule">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="4" width="18" height="18" rx="2" stroke="#1a1a2e" stroke-width="1.8"/>
+            <path d="M3 9h18" stroke="#1a1a2e" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M8 2v4M16 2v4" stroke="#1a1a2e" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          Schedule a Free Consultation
+        </a>
+
+        <a href="#" class="btn-quote">
+          Request a Project Quote
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12h14M13 6l6 6-6 6" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

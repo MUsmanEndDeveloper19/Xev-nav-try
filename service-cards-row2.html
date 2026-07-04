@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Service Cards Row 2</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f3f4f6;
+      padding: 60px 40px;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 32px 28px;
+    }
+
+    .card-icon-box {
+      width: 56px;
+      height: 56px;
+      background: #ede9fe;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .card-icon-box i {
+      font-size: 26px;
+      color: #7c3aed;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 14px;
+    }
+
+    .card p {
+      font-size: 15px;
+      color: #6b7280;
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+
+    .card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .card ul li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #374151;
+      font-weight: 500;
+    }
+
+    .card ul li i {
+      font-size: 18px;
+      color: #7c3aed;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 900px) {
+      .cards-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cards-grid">
+
+    <!-- Card 4: Security and Compliance -->
+    <div class="card">
+      <div class="card-icon-box">
+        <i class="ti ti-shield"></i>
+      </div>
+      <h3>Security and Compliance</h3>
+      <p>Enterprise grade security measures including AES 256 encryption at rest and TLS 1.3 in transit, multi factor authentication, RBAC, and compliance with GDPR, SOC 2, PIPEDA, and HIPAA standards. We conduct regular penetration testing and automated vulnerability scanning.</p>
+      <ul>
+        <li><i class="ti ti-circle-check"></i> End to End Encryption</li>
+        <li><i class="ti ti-circle-check"></i> OAuth 2.0, JWT, and MFA</li>
+        <li><i class="ti ti-circle-check"></i> GDPR, SOC 2, and PIPEDA Compliance</li>
+        <li><i class="ti ti-circle-check"></i> Penetration Testing and Security Audits</li>
+      </ul>
+    </div>
+    <!-- Card 4: Security and Compliance -->
+
+    <!-- Card 5: Performance Optimization -->
+    <div class="card">
+      <div class="card-icon-box">
+        <i class="ti ti-bolt"></i>
+      </div>
+      <h3>Performance Optimization</h3>
+      <p>We obsess over speed. From code splitting and lazy loading to Redis caching, CDN integration, database indexing, and query optimization, we ensure your application scores 90+ on Google Lighthouse and meets all Core Web Vitals thresholds for superior SEO performance and user experience.</p>
+      <ul>
+        <li><i class="ti ti-circle-check"></i> Core Web Vitals Optimization</li>
+        <li><i class="ti ti-circle-check"></i> Redis and CDN Caching Strategies</li>
+        <li><i class="ti ti-circle-check"></i> Code Splitting and Lazy Loading</li>
+        <li><i class="ti ti-circle-check"></i> Load Balancing and Horizontal Scaling</li>
+      </ul>
+    </div>
+    <!-- Card 5: Performance Optimization -->
+
+
+    <!-- Card 6: Microservices and APIs -->
+    <div class="card">
+      <div class="card-icon-box">
+        <i class="ti ti-code"></i>
+      </div>
+      <h3>Microservices and APIs</h3>
+      <p>Modular, maintainable architectures using microservices patterns with API gateways, service mesh, and event driven communication via Kafka or RabbitMQ. We build APIs that are well documented with OpenAPI/Swagger, versioned, and designed for backward compatibility and seamless third party integration.</p>
+      <ul>
+        <li><i class="ti ti-circle-check"></i> Microservices and Domain Driven Design</li>
+        <li><i class="ti ti-circle-check"></i> API Gateway and Service Mesh</li>
+        <li><i class="ti ti-circle-check"></i> Event Driven Architecture (Kafka/RabbitMQ)</li>
+        <li><i class="ti ti-circle-check"></i> OpenAPI Documentation and Versioning</li>
+      </ul>
+    </div>
+    <!-- Card 6: Microservices and APIs -->
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,609 @@
+
+Claude is responding
+please sent me sent email code in javascript form like premium and official vide in which inputs name, full name, father name, city, contry, phn number, gmaill, postal code and etc ye sab mujy inout form chahiye sent email funtion bana do
+
+17:10
+Yeh lo — ek full premium email form banaya hai EmailJS ke saath. Seedha copy-paste karo aur apna EmailJS credentials daal do.
+
+
+
+Ab is form ko production mein use karne ke liye 3 simple steps hain:
+
+Step 1 — EmailJS account banao
+emailjs.com pe free account banao → Email Service connect karo (Gmail, etc.)
+
+Step 2 — Template banao
+EmailJS dashboard mein template banaao aur in variables use karo:
+
+{{full_name}}, {{father_name}}, {{city}}, {{country}},
+{{phone}}, {{email}}, {{postal_code}}, {{message}} ... etc
+Step 3 — Credentials replace karo (JS mein)
+
+js
+emailjs.init("YOUR_PUBLIC_KEY");         // → apna Public Key
+emailjs.send("YOUR_SERVICE_ID", ...)     // → Service ID
+         "YOUR_TEMPLATE_ID", ...)        // → Template ID
+Form features:
+
+Full validation (required fields + email format check)
+Loading state button jab email send ho raha ho
+Success/error messages
+Auto clear after success
+Responsive — mobile pe bhi theek kaam karta hai
+Chahiye toh main is ka complete standalone HTML file bhi de sakta hoon download ke liye!
+
+file sent kro yr is input form ki
+
+17:12
+
+Working
+Working
+
+Check skills
+
+Premium contact form HTML file with EmailJS integration
+html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Form — XevAI Technologies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple: #7c3aed;
+      --purple-light: #a855f7;
+      --purple-glow: rgba(124,58,237,0.15);
+      --bg: #0f0d1a;
+      --bg-card: #16122a;
+      --bg-input: #1d1833;
+      --border: rgba(124,58,237,0.25);
+      --border-focus: #7c3aed;
+      --text: #f0eeff;
+      --text-muted: #9988cc;
+      --text-label: #c4b8f0;
+      --radius: 10px;
+      --transition: 0.2s ease;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 3rem 1rem 4rem;
+    }
+
+    /* ---- background ambient ---- */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -200px; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page-wrap {
+      width: 100%;
+      max-width: 740px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ---- header ---- */
+    .page-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .logo-icon {
+      width: 60px; height: 60px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--purple), var(--purple-light));
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.25rem;
+      box-shadow: 0 0 0 8px rgba(124,58,237,0.1);
+    }
+    .logo-icon i { font-size: 26px; color: #fff; }
+    .page-header h1 {
+      font-size: 28px; font-weight: 700;
+      background: linear-gradient(135deg, #fff 40%, var(--purple-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+    .page-header p {
+      font-size: 14px; color: var(--text-muted);
+    }
+
+    /* ---- card ---- */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.25rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--purple), var(--purple-light), transparent);
+    }
+
+    /* ---- section label ---- */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      margin-bottom: 1.25rem;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ---- grid ---- */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .grid-1 {
+      margin-bottom: 1rem;
+    }
+
+    /* ---- field ---- */
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .field label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-label);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .field label i { color: var(--purple-light); font-size: 13px; }
+    .req { color: #f87171; font-size: 13px; }
+
+    .field input,
+    .field select,
+    .field textarea {
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 11px 14px;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      outline: none;
+      width: 100%;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .field input::placeholder,
+    .field textarea::placeholder { color: rgba(153,136,204,0.5); }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 3px var(--purple-glow);
+    }
+    .field select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%239988cc' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 36px;
+    }
+    .field select option { background: #1d1833; }
+    .field textarea {
+      resize: vertical;
+      min-height: 100px;
+      line-height: 1.6;
+    }
+
+    /* ---- divider ---- */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 1.75rem 0;
+    }
+
+    /* ---- submit button ---- */
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      border-radius: var(--radius);
+      border: none;
+      background: linear-gradient(135deg, var(--purple), var(--purple-light));
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 1.75rem;
+      transition: opacity 0.2s, transform 0.1s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(124,58,237,0.35);
+      letter-spacing: 0.02em;
+    }
+    .submit-btn:hover {
+      opacity: 0.9;
+      box-shadow: 0 6px 28px rgba(124,58,237,0.5);
+    }
+    .submit-btn:active { transform: scale(0.98); }
+    .submit-btn:disabled { opacity: 0.55; cursor: not-allowed; box-shadow: none; }
+
+    /* ---- status message ---- */
+    .status-msg {
+      margin-top: 1.25rem;
+      padding: 13px 16px;
+      border-radius: var(--radius);
+      font-size: 14px;
+      text-align: center;
+      display: none;
+      font-weight: 500;
+    }
+    .status-msg.success {
+      background: rgba(34,197,94,0.1);
+      border: 1px solid rgba(34,197,94,0.3);
+      color: #4ade80;
+      display: block;
+    }
+    .status-msg.error {
+      background: rgba(248,113,113,0.1);
+      border: 1px solid rgba(248,113,113,0.3);
+      color: #f87171;
+      display: block;
+    }
+
+    /* ---- info note ---- */
+    .info-note {
+      background: rgba(124,58,237,0.08);
+      border: 1px solid rgba(124,58,237,0.2);
+      border-left: 3px solid var(--purple);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      line-height: 1.7;
+      font-family: 'Courier New', monospace;
+    }
+    .info-note strong { color: var(--purple-light); }
+
+    /* ---- footer ---- */
+    .page-footer {
+      text-align: center;
+      margin-top: 1.75rem;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .page-footer a { color: var(--purple-light); text-decoration: none; }
+    .page-footer a:hover { text-decoration: underline; }
+
+    /* ---- spinner ---- */
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spin { display: inline-block; animation: spin 0.9s linear infinite; }
+
+    /* ---- responsive ---- */
+    @media (max-width: 580px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      .card { padding: 1.5rem 1.25rem; }
+      .page-header h1 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <header class="page-header">
+    <div class="logo-icon"><i class="fa-solid fa-envelope"></i></div>
+    <h1>Get in Touch</h1>
+    <p>Fill in your details below and we'll get back to you within 24 hours.</p>
+  </header>
+
+  <div class="info-note">
+    <strong>⚙️ EmailJS Setup Required:</strong><br>
+    Replace <strong>YOUR_PUBLIC_KEY</strong>, <strong>YOUR_SERVICE_ID</strong>, and <strong>YOUR_TEMPLATE_ID</strong><br>
+    with your credentials from <strong>emailjs.com</strong> (free account)
+  </div>
+
+  <div class="card">
+
+    <!-- Personal Info -->
+    <div class="section-label">
+      <i class="fa-solid fa-user"></i> Personal Info
+    </div>
+
+    <div class="grid-2">
+      <div class="field">
+        <label><i class="fa-solid fa-signature"></i> First Name <span class="req">*</span></label>
+        <input type="text" id="firstName" placeholder="Muhammad" />
+      </div>
+      <div class="field">
+        <label><i class="fa-solid fa-signature"></i> Last Name <span class="req">*</span></label>
+        <input type="text" id="lastName" placeholder="Usman" />
+      </div>
+    </div>
+
+    <div class="grid-1">
+      <div class="field">
+        <label><i class="fa-solid fa-id-card"></i> Full Name <span class="req">*</span></label>
+        <input type="text" id="fullName" placeholder="Muhammad Usman Habib" />
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="field">
+        <label><i class="fa-solid fa-person"></i> Father's Name <span class="req">*</span></label>
+        <input type="text" id="fatherName" placeholder="Abdul Habib" />
+      </div>
+      <div class="field">
+        <label><i class="fa-solid fa-venus-mars"></i> Gender</label>
+        <select id="gender">
+          <option value="">Select gender</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Prefer not to say</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="field">
+        <label><i class="fa-solid fa-cake-candles"></i> Date of Birth</label>
+        <input type="date" id="dob" />
+      </div>
+      <div class="field">
+        <label><i class="fa-solid fa-briefcase"></i> Profession</label>
+        <input type="text" id="profession" placeholder="Software Developer" />
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Location -->
+    <div class="section-label">
+      <i class="fa-solid fa-map-pin"></i> Location
+    </div>
+
+    <div class="grid-2">
+      <div class="field">
+        <label><i class="fa-solid fa-city"></i> City <span class="req">*</span></label>
+        <input type="text" id="city" placeholder="Lahore" />
+      </div>
+      <div class="field">
+        <label><i class="fa-solid fa-globe"></i> Country <span class="req">*</span></label>
+        <input type="text" id="country" placeholder="Pakistan" />
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="field">
+        <label><i class="fa-solid fa-map"></i> State / Province</label>
+        <input type="text" id="state" placeholder="Punjab" />
+      </div>
+      <div class="field">
+        <label><i class="fa-solid fa-envelope-open-text"></i> Postal Code</label>
+        <input type="text" id="postalCode" placeholder="54000" />
+      </div>
+    </div>
+
+    <div class="grid-1">
+      <div class="field">
+        <label><i class="fa-solid fa-location-dot"></i> Full Address</label>
+        <input type="text" id="address" placeholder="House No, Street, Area" />
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Contact Details -->
+    <div class="section-label">
+      <i class="fa-solid fa-mobile-screen"></i> Contact Details
+    </div>
+
+    <div class="grid-2">
+      <div class="field">
+        <label><i class="fa-solid fa-phone"></i> Phone Number <span class="req">*</span></label>
+        <input type="tel" id="phone" placeholder="+92 300 1234567" />
+      </div>
+      <div class="field">
+        <label><i class="fa-brands fa-google"></i> Gmail Address <span class="req">*</span></label>
+        <input type="email" id="email" placeholder="usman@gmail.com" />
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="field">
+        <label><i class="fa-brands fa-whatsapp"></i> WhatsApp No.</label>
+        <input type="tel" id="whatsapp" placeholder="+92 300 1234567" />
+      </div>
+      <div class="field">
+        <label><i class="fa-brands fa-linkedin"></i> LinkedIn URL</label>
+        <input type="url" id="linkedin" placeholder="linkedin.com/in/username" />
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Message -->
+    <div class="section-label">
+      <i class="fa-solid fa-message"></i> Your Message
+    </div>
+
+    <div class="grid-1">
+      <div class="field">
+        <label><i class="fa-solid fa-tag"></i> Subject</label>
+        <input type="text" id="subject" placeholder="Project Inquiry / Support / Collaboration" />
+      </div>
+    </div>
+
+    <div class="grid-1">
+      <div class="field">
+        <label><i class="fa-solid fa-comment-dots"></i> Message <span class="req">*</span></label>
+        <textarea id="message" placeholder="Write your message here..."></textarea>
+      </div>
+    </div>
+
+    <button class="submit-btn" id="sendBtn" onclick="sendEmail()">
+      <i class="fa-solid fa-paper-plane"></i>
+      Send Message
+    </button>
+
+    <div class="status-msg" id="statusMsg"></div>
+
+  </div><!-- /card -->
+
+  <footer class="page-footer">
+    Powered by <a href="https://xevai.com" target="_blank">XevAI Technologies</a> &middot;
+    Built with <a href="https://emailjs.com" target="_blank">EmailJS</a>
+  </footer>
+
+</div><!-- /page-wrap -->
+
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  /* ============================================
+     EMAILJS CONFIG — Replace these 3 values
+     Get them from: https://emailjs.com
+  ============================================ */
+  const EMAILJS_PUBLIC_KEY  = "YOUR_PUBLIC_KEY";
+  const EMAILJS_SERVICE_ID  = "YOUR_SERVICE_ID";
+  const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+
+  (function () { emailjs.init(EMAILJS_PUBLIC_KEY); })();
+
+  /* ---- helpers ---- */
+  const get = id => document.getElementById(id).value.trim();
+
+  function showStatus(msg, type) {
+    const el = document.getElementById('statusMsg');
+    el.textContent = msg;
+    el.className = 'status-msg ' + type;
+    el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function clearForm() {
+    const ids = [
+      'firstName','lastName','fullName','fatherName','gender','dob','profession',
+      'city','country','state','postalCode','address',
+      'phone','email','whatsapp','linkedin','subject','message'
+    ];
+    ids.forEach(id => document.getElementById(id).value = '');
+  }
+
+  /* ---- main send function ---- */
+  function sendEmail() {
+    /* required field validation */
+    const required = [
+      { id: 'firstName',  label: 'First Name' },
+      { id: 'fullName',   label: 'Full Name' },
+      { id: 'fatherName', label: "Father's Name" },
+      { id: 'city',       label: 'City' },
+      { id: 'country',    label: 'Country' },
+      { id: 'phone',      label: 'Phone Number' },
+      { id: 'email',      label: 'Gmail Address' },
+      { id: 'message',    label: 'Message' },
+    ];
+
+    for (const r of required) {
+      if (!get(r.id)) {
+        showStatus(`Please fill in: ${r.label}`, 'error');
+        document.getElementById(r.id).focus();
+        return;
+      }
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(get('email'))) {
+      showStatus('Please enter a valid email address.', 'error');
+      document.getElementById('email').focus();
+      return;
+    }
+
+    /* loading state */
+    const btn = document.getElementById('sendBtn');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-circle-notch spin"></i> Sending...';
+
+    /* template params — match these with EmailJS template variables */
+    const templateParams = {
+      first_name:   get('firstName'),
+      last_name:    get('lastName'),
+      full_name:    get('fullName'),
+      father_name:  get('fatherName'),
+      gender:       get('gender')     || 'Not specified',
+      dob:          get('dob')        || 'Not specified',
+      profession:   get('profession') || 'Not specified',
+      city:         get('city'),
+      country:      get('country'),
+      state:        get('state')      || 'N/A',
+      postal_code:  get('postalCode') || 'N/A',
+      address:      get('address')    || 'N/A',
+      phone:        get('phone'),
+      email:        get('email'),
+      whatsapp:     get('whatsapp')   || 'N/A',
+      linkedin:     get('linkedin')   || 'N/A',
+      subject:      get('subject')    || 'General Inquiry',
+      message:      get('message'),
+    };
+
+    /* send via EmailJS */
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+      .then(() => {
+        showStatus('✅ Message sent successfully! We will get back to you soon.', 'success');
+        clearForm();
+      })
+      .catch(err => {
+        console.error('EmailJS Error:', err);
+        showStatus('❌ Failed to send. Check your EmailJS credentials and try again.', 'error');
+      })
+      .finally(() => {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
+      });
+  }
+</script>
+
+</body>
+</html>
+
+
+
+
+Claude is AI and can make mistakes. Please double-check responses.

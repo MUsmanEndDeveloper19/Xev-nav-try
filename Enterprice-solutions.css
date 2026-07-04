@@ -1,0 +1,216 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* ── Section Wrapper ── */
+    .enterprise-section {
+      background-color: #0f1117;
+      padding: 70px 0;
+      background-color: #0f1117;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: #e0e0f0;
+      width: 100%;
+    }
+
+    /* ── Left Column ── */
+    .enterprise-badge {
+      display: inline-block;
+      background-color: rgba(120, 80, 220, 0.18);
+      border: 1px solid rgba(130, 90, 230, 0.45);
+      color: #a78bfa;
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 5px 16px;
+      border-radius: 20px;
+      margin-bottom: 22px;
+      letter-spacing: 0.02em;
+    }
+
+    .enterprise-title {
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.18;
+      margin-bottom: 26px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .enterprise-desc {
+      font-size: 1rem;
+      color: #9ca3c5;
+      line-height: 1.8;
+      margin-bottom: 36px;
+    }
+
+    /* ── Buttons ── */
+    .btn-quote {
+      display: block;
+      width: 100%;
+      background: #7c3aed;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 15px 20px;
+      border-radius: 8px;
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      margin-bottom: 14px;
+      transition: background 0.2s;
+    }
+    .btn-quote:hover {
+      background: #6d28d9;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .btn-phone {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      background: transparent;
+      color: #c4b5fd;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 13px 20px;
+      border-radius: 8px;
+      border: 1.5px solid rgba(130, 90, 230, 0.4);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-phone:hover {
+      border-color: #7c3aed;
+      color: #a78bfa;
+      text-decoration: none;
+    }
+    .btn-phone i {
+      font-size: 1rem;
+    }
+
+    /* ── Right Column — Cards Grid ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .feature-card {
+      background-color: #1a1d2e;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      padding: 22px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .feature-card:hover {
+      border-color: rgba(124, 58, 237, 0.5);
+      background-color: #1e2138;
+    }
+
+    .feature-icon {
+      flex-shrink: 0;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #a78bfa;
+      font-size: 1.15rem;
+      margin-top: 2px;
+    }
+
+    .feature-text {
+      font-size: 0.9rem;
+      color: #c4c4d8;
+      line-height: 1.55;
+    }
+
+    /* ── Responsive ── */
+
+    /* Large desktops (≥1200px) — default above */
+
+    /* Medium (≥992px <1200px) */
+    @media (max-width: 1199px) {
+      .enterprise-title {
+        font-size: 2.2rem;
+      }
+    }
+
+    /* Tablets landscape (≥768px <992px) */
+    @media (max-width: 991px) {
+      .enterprise-section {
+        padding: 60px 0;
+      }
+      .enterprise-title {
+        font-size: 2rem;
+      }
+      .enterprise-desc {
+        font-size: 0.95rem;
+      }
+      /* Stack columns on tablet */
+      .enterprise-left {
+        margin-bottom: 40px;
+      }
+      .features-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+    }
+
+    /* Tablets portrait / large phones (≥576px <768px) */
+    @media (max-width: 767px) {
+      .enterprise-section {
+        padding: 50px 0;
+      }
+      .enterprise-title {
+        font-size: 1.75rem;
+      }
+      .enterprise-desc {
+        font-size: 0.92rem;
+        margin-bottom: 28px;
+      }
+      .features-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .feature-card {
+        padding: 16px 14px;
+      }
+      .feature-text {
+        font-size: 0.83rem;
+      }
+    }
+
+    /* Small phones (<576px) */
+    @media (max-width: 575px) {
+      .enterprise-title {
+        font-size: 1.5rem;
+      }
+      .enterprise-desc {
+        font-size: 0.88rem;
+      }
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .feature-card {
+        padding: 14px 14px;
+      }
+    }
+
+    /* Very small phones (<400px) */
+    @media (max-width: 399px) {
+      .enterprise-title {
+        font-size: 1.35rem;
+      }
+      .enterprise-badge {
+        font-size: 0.75rem;
+        padding: 4px 12px;
+      }
+    }
